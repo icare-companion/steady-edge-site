@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SteadyEDGE — Privacy Policy & Terms of Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage: #4A7C59;
+  --sage-light: #6B9E78;
+  --sage-pale: #EAF2EC;
+  --tan: #C8A882;
+  --tan-light: #F5EDE0;
+  --terra: #D4845A;
+  --dark: #2C3025;
+  --mid: #5A6350;
+  --cream: #FEFAF4;
+  --white: #FFFFFF;
+  --off: #F7F2EA;
+  --border: #E8E0D4;
+  --shadow: rgba(44,48,37,0.08);
+  --shadow-md: rgba(44,48,37,0.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--off);}
+::-webkit-scrollbar-thumb{background:#C8DFD0;border-radius:3px;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 48px;
+  background:rgba(254,250,244,0.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(200,168,130,0.15);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-text{font-size:21px;font-weight:900;color:var(--dark);}
+.nav-logo-text span{color:var(--sage);}
+.nav-logo-sub{font-size:10px;font-weight:700;color:var(--tan);letter-spacing:0.06em;text-transform:uppercase;margin-top:-2px;}
+.nav-btn{
+  background:var(--sage);color:white;
+  padding:10px 22px;border-radius:50px;
+  font-size:13px;font-weight:800;text-decoration:none;
+  transition:all 0.2s;
+}
+.nav-btn:hover{background:var(--sage-light);transform:translateY(-1px);}
+
+/* ── PAGE HEADER ── */
+.page-header{
+  padding:140px 24px 80px;
+  background:var(--dark);
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.page-header::before{
+  content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:rgba(74,124,89,0.08);border-radius:50%;
+}
+.page-header::after{
+  content:'';position:absolute;bottom:-60px;right:-60px;
+  width:300px;height:300px;
+  background:rgba(200,168,130,0.06);border-radius:50%;
+}
+.header-goat{
+  width:90px;height:90px;margin:0 auto 20px;
+  animation:floatGoat 4s ease-in-out infinite;
+  position:relative;
+}
+@keyframes floatGoat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.page-header h1{
+  font-size:clamp(32px,5vw,52px);font-weight:900;
+  color:white;line-height:1.1;letter-spacing:-0.02em;
+  margin-bottom:14px;position:relative;
+}
+.page-header p{
+  font-family:'Lora',serif;font-size:17px;
+  color:rgba(255,255,255,0.55);position:relative;
+  max-width:480px;margin:0 auto;line-height:1.65;
+}
+.header-updated{
+  display:inline-block;margin-top:20px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.5);padding:6px 18px;border-radius:50px;
+  font-size:12px;font-weight:700;letter-spacing:0.04em;
+  position:relative;
+}
+
+/* ── TAB SWITCHER ── */
+.tab-bar{
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:60px;z-index:50;
+  display:flex;justify-content:center;gap:0;
+}
+.tab-btn{
+  padding:18px 48px;
+  font-size:14px;font-weight:800;color:var(--mid);
+  cursor:pointer;border-bottom:3px solid transparent;
+  transition:all 0.2s;user-select:none;
+  background:none;border:none;border-bottom:3px solid transparent;
+  font-family:'Nunito',sans-serif;letter-spacing:0.02em;
+}
+.tab-btn:hover{color:var(--sage);}
+.tab-btn.active{color:var(--sage);border-bottom-color:var(--sage);}
+
+/* ── LAYOUT ── */
+.doc-layout{
+  display:grid;grid-template-columns:260px 1fr;
+  max-width:1100px;margin:0 auto;
+  min-height:100vh;
+}
+
+/* ── SIDEBAR ── */
+.sidebar{
+  padding:40px 0;
+  position:sticky;top:116px;height:calc(100vh - 116px);
+  overflow-y:auto;border-right:1px solid var(--border);
+}
+.sidebar-heading{
+  font-size:10px;font-weight:800;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--tan);
+  padding:16px 24px 6px;
+}
+.sidebar a{
+  display:block;padding:9px 24px;
+  font-size:13px;font-weight:700;color:var(--mid);
+  text-decoration:none;border-left:3px solid transparent;
+  transition:all 0.15s;line-height:1.4;
+}
+.sidebar a:hover{color:var(--sage);background:var(--sage-pale);border-left-color:var(--sage);}
+.sidebar a.active{color:var(--sage);background:var(--sage-pale);border-left-color:var(--sage);}
+
+/* ── CONTENT ── */
+.doc-content{padding:52px 60px 100px;}
+.doc-section{
+  display:none;
+  max-width:720px;
+}
+.doc-section.active{display:block;}
+
+/* ── DOCUMENT TYPOGRAPHY ── */
+.doc-section h2{
+  font-size:30px;font-weight:900;color:var(--dark);
+  margin-bottom:8px;letter-spacing:-0.015em;
+}
+.doc-section .doc-intro{
+  font-family:'Lora',serif;font-size:17px;line-height:1.75;
+  color:var(--mid);margin-bottom:48px;
+  padding-bottom:32px;border-bottom:2px solid var(--border);
+}
+.doc-block{margin-bottom:44px;scroll-margin-top:140px;}
+.doc-block h3{
+  font-size:19px;font-weight:900;color:var(--dark);
+  margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.doc-block h3 .block-icon{
+  width:34px;height:34px;border-radius:10px;
+  background:var(--sage-pale);color:var(--sage);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.doc-block p{
+  font-family:'Lora',serif;font-size:15px;line-height:1.8;
+  color:var(--mid);margin-bottom:14px;
+}
+.doc-block p:last-child{margin-bottom:0;}
+.doc-block ul,.doc-block ol{
+  margin:10px 0 14px 0;
+  display:flex;flex-direction:column;gap:8px;
+}
+.doc-block ul li,.doc-block ol li{
+  font-family:'Lora',serif;font-size:15px;line-height:1.7;
+  color:var(--mid);padding-left:22px;position:relative;
+}
+.doc-block ul li::before{
+  content:'·';position:absolute;left:6px;
+  color:var(--sage);font-weight:900;font-size:18px;line-height:1.4;
+}
+.doc-block ol{list-style:none;counter-reset:ol-counter;}
+.doc-block ol li{counter-increment:ol-counter;}
+.doc-block ol li::before{
+  content:counter(ol-counter)'.';
+  position:absolute;left:0;color:var(--sage);font-weight:800;font-size:13px;
+}
+.doc-block strong{color:var(--dark);font-weight:800;}
+
+/* Callout boxes */
+.callout{
+  border-radius:14px;padding:18px 22px;margin:18px 0;
+  display:flex;gap:12px;align-items:flex-start;
+  font-family:'Lora',serif;font-size:14px;line-height:1.7;
+}
+.callout-sage{background:var(--sage-pale);border:1px solid #B8D4BF;color:#2E5C3A;}
+.callout-tan{background:var(--tan-light);border:1px solid #D8C0A0;color:#6A4E2A;}
+.callout-terra{background:#FDF0E8;border:1px solid #E8C8A8;color:#7A3E18;}
+.callout-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+.callout strong{font-weight:800;}
+
+/* Divider */
+.doc-divider{
+  border:none;border-top:1px solid var(--border);
+  margin:40px 0;
+}
+
+/* Contact block */
+.contact-block{
+  background:var(--dark);border-radius:20px;padding:32px;
+  margin-top:40px;
+}
+.contact-block h4{font-size:17px;font-weight:900;color:white;margin-bottom:8px;}
+.contact-block p{font-family:'Lora',serif;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:14px;}
+.contact-block a{color:var(--tan);text-decoration:none;font-weight:700;}
+.contact-block a:hover{color:white;}
+
+/* Last updated badge */
+.section-updated{
+  display:inline-block;margin-bottom:28px;
+  background:var(--sage-pale);border:1px solid #B8D4BF;
+  color:var(--sage);padding:5px 14px;border-radius:50px;
+  font-size:11px;font-weight:800;letter-spacing:0.05em;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--dark);padding:36px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-logo{font-size:20px;font-weight:900;color:white;display:flex;align-items:center;gap:8px;}
+.footer-logo span{color:var(--sage-light);}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.35);font-weight:600;}
+footer nav a{
+  color:rgba(255,255,255,0.38);text-decoration:none;
+  font-size:13px;font-weight:600;margin-left:24px;transition:color 0.2s;
+}
+footer nav a:hover{color:white;}
+
+@media(max-width:768px){
+  nav{padding:14px 20px;}
+  .doc-layout{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .doc-content{padding:32px 24px 80px;}
+  .tab-btn{padding:16px 24px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 200 200" fill="none">
+      <ellipse cx="100" cy="130" rx="50" ry="42" fill="#F5EFE6" stroke="#4A7C59" stroke-width="3"/>
+      <circle cx="100" cy="78" r="32" fill="#F5EFE6" stroke="#4A7C59" stroke-width="3"/>
+      <path d="M84 52 Q74 32 78 22 Q82 14 86 22 Q88 32 84 48" fill="#C8A882"/>
+      <path d="M116 52 Q126 32 122 22 Q118 14 114 22 Q112 32 116 48" fill="#C8A882"/>
+      <circle cx="90" cy="76" r="7" fill="white"/><circle cx="110" cy="76" r="7" fill="white"/>
+      <circle cx="91" cy="76" r="4.5" fill="#2C3025"/><circle cx="111" cy="76" r="4.5" fill="#2C3025"/>
+      <circle cx="92.5" cy="74.5" r="1.8" fill="white"/><circle cx="112.5" cy="74.5" r="1.8" fill="white"/>
+      <ellipse cx="100" cy="90" rx="9" ry="6" fill="#F4C5B5"/>
+      <path d="M93 96 Q100 103 107 96" stroke="#C8968A" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <rect x="72" y="162" width="12" height="28" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
+      <rect x="90" y="164" width="12" height="26" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
+      <rect x="100" y="164" width="12" height="26" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
+      <rect x="118" y="162" width="12" height="28" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
+      <rect x="72" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
+      <rect x="90" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
+      <rect x="100" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
+      <rect x="118" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
+    </svg>
+    <div>
+      <div class="nav-logo-text">Steady<span>EDGE</span></div>
+      <div class="nav-logo-sub">Strength Training for Your Nervous System</div>
+    </div>
+  </a>
+  <a href="index.html" class="nav-btn">🐐 Back to Home</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Privacy & Terms</h1>
+  <p>We believe in being clear about how we handle your information and what you can expect from us.</p>
+  <div class="header-updated">Last updated: March 2026</div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('privacy', this)">🔒 Privacy Policy</button>
+  <button class="tab-btn" onclick="switchTab('terms', this)">📋 Terms of Service</button>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="doc-layout">
+
+  <!-- ══════════ PRIVACY SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar-privacy">
+    <div class="sidebar-heading">Privacy Policy</div>
+    <a href="#priv-overview" class="active">Overview</a>
+    <a href="#priv-collect">Information We Collect</a>
+    <a href="#priv-use">How We Use It</a>
+    <a href="#priv-store">How We Store It</a>
+    <a href="#priv-share">Who We Share With</a>
+    <a href="#priv-sensitive">Sensitive Information</a>
+    <a href="#priv-cookies">Cookies</a>
+    <a href="#priv-rights">Your Rights</a>
+    <a href="#priv-children">Children</a>
+    <a href="#priv-changes">Policy Changes</a>
+    <a href="#priv-contact">Contact Us</a>
+  </aside>
+
+  <!-- ══════════ TERMS SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar-terms" style="display:none;">
+    <div class="sidebar-heading">Terms of Service</div>
+    <a href="#terms-overview" class="active">Overview</a>
+    <a href="#terms-eligibility">Eligibility</a>
+    <a href="#terms-account">Your Account</a>
+    <a href="#terms-subscription">Subscription & Billing</a>
+    <a href="#terms-use">Acceptable Use</a>
+    <a href="#terms-content">Your Content</a>
+    <a href="#terms-ip">Intellectual Property</a>
+    <a href="#terms-disclaimer">Disclaimer</a>
+    <a href="#terms-liability">Limitation of Liability</a>
+    <a href="#terms-termination">Termination</a>
+    <a href="#terms-governing">Governing Law</a>
+    <a href="#terms-changes">Changes to Terms</a>
+    <a href="#terms-contact">Contact Us</a>
+  </aside>
+
+  <!-- ══════════ CONTENT ══════════ -->
+  <main class="doc-content">
+
+    <!-- ════════════════════════
+         PRIVACY POLICY
+    ════════════════════════ -->
+    <div class="doc-section active" id="section-privacy">
+
+      <div class="section-updated">🔒 Privacy Policy</div>
+      <h2>Your privacy matters to Edge.</h2>
+      <p class="doc-intro">SteadyEDGE is a personal growth and behavioral training app. The work you do here is personal — sometimes deeply so. We take that seriously. This policy explains in plain language what information we collect, why we collect it, and how we protect it. No legal fog. No surprises.</p>
+
+      <!-- 1 -->
+      <div class="doc-block" id="priv-overview">
+        <h3><div class="block-icon">🐐</div>Overview</h3>
+        <p>SteadyEDGE ("we," "us," or "our") operates the SteadyEDGE app and website (steadyedge.app). This Privacy Policy applies to all information collected through our platform, including your account, training sessions, and any communications with us.</p>
+        <p>By using SteadyEDGE, you agree to the collection and use of information as described in this policy. If you do not agree, please discontinue use of the platform.</p>
+        <div class="callout callout-sage">
+          <div class="callout-icon">💡</div>
+          <div><strong>The short version:</strong> We collect only what we need to make the app work and improve it. We never sell your personal data. Your session content belongs to you.</div>
+        </div>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 2 -->
+      <div class="doc-block" id="priv-collect">
+        <h3><div class="block-icon">📋</div>Information We Collect</h3>
+        <p><strong>Information you provide directly:</strong></p>
+        <ul>
+          <li>Account registration details (name, email address, password)</li>
+          <li>Payment information (processed securely by our payment provider — we do not store card numbers)</li>
+          <li>Session content you enter, including Edge descriptions, activation levels, expansion moves, and rep logs</li>
+          <li>Feedback you submit through the Tester Feedback feature</li>
+          <li>Communications you send to us directly (email, support requests)</li>
+        </ul>
+        <p><strong>Information collected automatically:</strong></p>
+        <ul>
+          <li>Device type, operating system, and browser</li>
+          <li>App usage data (which features you use, session frequency, time spent)</li>
+          <li>Log data (IP address, access times, pages viewed)</li>
+          <li>Crash reports and performance data</li>
+        </ul>
+        <div class="callout callout-tan">
+          <div class="callout-icon">ℹ️</div>
+          <div>We do not collect health or medical records. SteadyEDGE is a behavioral training tool, not a medical or clinical service.</div>
+        </div>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 3 -->
+      <div class="doc-block" id="priv-use">
+        <h3><div class="block-icon">⚙️</div>How We Use Your Information</h3>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Provide, operate, and maintain the SteadyEDGE platform</li>
+          <li>Personalize your training experience and track your progress over time</li>
+          <li>Process payments and manage your subscription</li>
+          <li>Send you account-related communications (receipts, password resets, important updates)</li>
+          <li>Send you optional training reminders and product updates (you can opt out at any time)</li>
+          <li>Improve and develop new features based on how the app is used in aggregate</li>
+          <li>Respond to your questions and support requests</li>
+          <li>Comply with our legal obligations</li>
+        </ul>
+        <p>We do not use your session content — your Edge descriptions, activation logs, or personal reflections — for marketing, advertising, or any purpose other than delivering your training experience.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 4 -->
+      <div class="doc-block" id="priv-store">
+        <h3><div class="block-icon">🔐</div>How We Store and Protect It</h3>
+        <p>Your data is stored on secure servers using industry-standard encryption in transit (TLS) and at rest. We implement appropriate technical and organizational measures to protect against unauthorized access, alteration, disclosure, or destruction of your information.</p>
+        <p>We retain your account and session data for as long as your account remains active. If you delete your account, we will delete your personal data within 30 days, except where we are required to retain it by law.</p>
+        <div class="callout callout-sage">
+          <div class="callout-icon">🔒</div>
+          <div><strong>Your session content is private.</strong> Your Edge descriptions, activation logs, and personal reflections are visible only to you and are not reviewed by SteadyEDGE staff except in exceptional circumstances (such as a safety concern you report to us).</div>
+        </div>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 5 -->
+      <div class="doc-block" id="priv-share">
+        <h3><div class="block-icon">🤝</div>Who We Share Your Information With</h3>
+        <p>We do not sell your personal data. We do not share your session content with third parties. We may share limited information with trusted service providers who help us operate the platform, including:</p>
+        <ul>
+          <li><strong>Payment processors</strong> (e.g., Stripe) — to process your subscription securely</li>
+          <li><strong>Cloud infrastructure providers</strong> — to host and deliver the app</li>
+          <li><strong>Analytics providers</strong> — to understand aggregate usage patterns (data is anonymized where possible)</li>
+          <li><strong>Email service providers</strong> — to send transactional and optional marketing emails</li>
+        </ul>
+        <p>All third-party providers are bound by data processing agreements and are prohibited from using your data for their own purposes.</p>
+        <p>We may also disclose information if required to do so by law, or if we believe disclosure is necessary to protect the safety of any person or to protect our legal rights.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 6 -->
+      <div class="doc-block" id="priv-sensitive">
+        <h3><div class="block-icon">💙</div>Sensitive Information & Mental Wellbeing</h3>
+        <p>SteadyEDGE is a behavioral training tool, not a clinical service. However, we recognize that the content you share in sessions may be personal and sensitive in nature.</p>
+        <div class="callout callout-terra">
+          <div class="callout-icon">⚠️</div>
+          <div><strong>SteadyEDGE is not therapy and is not a substitute for mental health care.</strong> If you are experiencing a mental health crisis, please contact a qualified mental health professional or crisis service in your region.</div>
+        </div>
+        <p>We treat all session content with care. We do not use it for advertising, profiling, or any purpose beyond delivering your personal training experience. We do not share it with coaches, therapists, employers, insurance providers, or any other third parties without your explicit consent.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 7 -->
+      <div class="doc-block" id="priv-cookies">
+        <h3><div class="block-icon">🍪</div>Cookies & Tracking</h3>
+        <p>We use cookies and similar tracking technologies to maintain your session, remember your preferences, and understand how the app is used. Types of cookies we use:</p>
+        <ul>
+          <li><strong>Essential cookies</strong> — required for the app to function (login sessions, security)</li>
+          <li><strong>Analytics cookies</strong> — help us understand usage patterns in aggregate</li>
+          <li><strong>Preference cookies</strong> — remember your settings</li>
+        </ul>
+        <p>You can control cookies through your browser settings. Disabling essential cookies may affect app functionality. We do not use cookies for third-party advertising.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 8 -->
+      <div class="doc-block" id="priv-rights">
+        <h3><div class="block-icon">✋</div>Your Rights</h3>
+        <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Access</strong> — request a copy of the personal data we hold about you</li>
+          <li><strong>Correction</strong> — ask us to correct inaccurate or incomplete information</li>
+          <li><strong>Deletion</strong> — request that we delete your personal data</li>
+          <li><strong>Portability</strong> — request your data in a structured, machine-readable format</li>
+          <li><strong>Objection</strong> — object to certain types of processing (e.g., marketing emails)</li>
+          <li><strong>Restriction</strong> — ask us to limit how we use your data in certain circumstances</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at the address below. We will respond within 30 days. We may ask you to verify your identity before fulfilling a request.</p>
+        <p>If you are located in the European Economic Area, United Kingdom, or California, additional rights and protections may apply under GDPR or CCPA.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 9 -->
+      <div class="doc-block" id="priv-children">
+        <h3><div class="block-icon">🧒</div>Children's Privacy</h3>
+        <p>SteadyEDGE is not directed at or intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately and we will delete it promptly.</p>
+        <p>Users between 13 and 17 should use SteadyEDGE only with the consent and involvement of a parent or guardian.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 10 -->
+      <div class="doc-block" id="priv-changes">
+        <h3><div class="block-icon">📝</div>Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page and, for material changes, notify you by email or through a notice within the app.</p>
+        <p>Your continued use of SteadyEDGE after any changes constitutes your acceptance of the updated policy.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- Contact -->
+      <div class="doc-block" id="priv-contact">
+        <h3><div class="block-icon">📬</div>Contact Us</h3>
+        <p>If you have any questions about this Privacy Policy or how we handle your data, please reach out.</p>
+        <div class="contact-block">
+          <h4>🐐 SteadyEDGE Privacy Team</h4>
+          <p>We're a small team and we take every privacy question seriously. Edge won't be the one answering — but a real human will.</p>
+          <p>Email: <a href="mailto:privacy@steadyedge.app">privacy@steadyedge.app</a><br>
+          Website: <a href="https://steadyedge.app">steadyedge.app</a></p>
+        </div>
+      </div>
+
+    </div><!-- /section-privacy -->
+
+
+    <!-- ════════════════════════
+         TERMS OF SERVICE
+    ════════════════════════ -->
+    <div class="doc-section" id="section-terms">
+
+      <div class="section-updated">📋 Terms of Service</div>
+      <h2>The rules of the road with Edge.</h2>
+      <p class="doc-intro">These Terms of Service govern your use of SteadyEDGE. We've written them as clearly as we can. By using the app or website, you agree to these terms. If you don't agree, please don't use SteadyEDGE.</p>
+
+      <!-- 1 -->
+      <div class="doc-block" id="terms-overview">
+        <h3><div class="block-icon">🐐</div>Overview</h3>
+        <p>SteadyEDGE is a behavioral training platform operated by SteadyEDGE, LLC ("SteadyEDGE," "we," "us," or "our"). These Terms of Service ("Terms") apply to your access and use of our website (steadyedge.app) and mobile application.</p>
+        <p>These Terms constitute a legally binding agreement between you and SteadyEDGE. Please read them carefully.</p>
+        <div class="callout callout-sage">
+          <div class="callout-icon">💡</div>
+          <div><strong>The short version:</strong> Use the app as it's intended. Don't misuse it. Pay for what you use. Your content is yours. We're a training tool, not a therapist.</div>
+        </div>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 2 -->
+      <div class="doc-block" id="terms-eligibility">
+        <h3><div class="block-icon">✅</div>Eligibility</h3>
+        <p>To use SteadyEDGE, you must:</p>
+        <ul>
+          <li>Be at least 13 years of age (users under 18 require parental or guardian consent)</li>
+          <li>Have the legal capacity to enter into a binding agreement</li>
+          <li>Not be prohibited from using the service under applicable law</li>
+          <li>Provide accurate and truthful information when creating your account</li>
+        </ul>
+        <p>By creating an account, you represent and warrant that you meet all of the above requirements.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 3 -->
+      <div class="doc-block" id="terms-account">
+        <h3><div class="block-icon">👤</div>Your Account</h3>
+        <p>You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You agree to:</p>
+        <ul>
+          <li>Use a strong, unique password for your SteadyEDGE account</li>
+          <li>Notify us immediately at <a href="mailto:support@steadyedge.app" style="color:var(--sage);font-weight:700;">support@steadyedge.app</a> if you suspect unauthorized access to your account</li>
+          <li>Not share your account with any other person</li>
+          <li>Not create more than one account per person</li>
+          <li>Keep your account information accurate and up to date</li>
+        </ul>
+        <p>SteadyEDGE is not liable for any loss or damage arising from your failure to maintain account security.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 4 -->
+      <div class="doc-block" id="terms-subscription">
+        <h3><div class="block-icon">💳</div>Subscription & Billing</h3>
+        <p><strong>Free Trial:</strong> SteadyEDGE offers a 7-day free trial for new users. No payment is required to start your trial. At the end of the trial period, your account will automatically convert to a paid subscription unless you cancel before the trial ends.</p>
+        <p><strong>Subscription Plans:</strong> We currently offer monthly ($19/month) and annual ($149/year) subscription plans. Prices are in US dollars and are subject to change with notice.</p>
+        <p><strong>Billing:</strong> Subscriptions are billed in advance on a recurring basis (monthly or annually). Payment is processed securely by our third-party payment provider. You authorize us to charge your payment method on a recurring basis.</p>
+        <p><strong>Cancellation:</strong> You may cancel your subscription at any time through your account settings. Cancellation takes effect at the end of your current billing period. We do not offer refunds for partial billing periods, except as required by applicable law.</p>
+        <p><strong>Founder Pricing:</strong> Users who subscribe during our Founder Pricing promotional period will retain their discounted rate for as long as their subscription remains active and in good standing. Founder Pricing is non-transferable.</p>
+        <div class="callout callout-tan">
+          <div class="callout-icon">ℹ️</div>
+          <div>If you have a question about a charge or need to update your payment method, contact us at <strong>support@steadyedge.app</strong> and we'll sort it out.</div>
+        </div>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 5 -->
+      <div class="doc-block" id="terms-use">
+        <h3><div class="block-icon">📏</div>Acceptable Use</h3>
+        <p>SteadyEDGE is designed for personal behavioral training. You agree to use it only for its intended purpose and in a manner consistent with these Terms and applicable law. You agree not to:</p>
+        <ul>
+          <li>Use the platform for any unlawful purpose or in violation of any applicable law or regulation</li>
+          <li>Attempt to gain unauthorized access to any part of the platform or other users' accounts</li>
+          <li>Reverse-engineer, decompile, or disassemble any part of the app</li>
+          <li>Use automated scripts, bots, or scraping tools to access or interact with the platform</li>
+          <li>Transmit any harmful, offensive, or disruptive content</li>
+          <li>Impersonate any person or entity</li>
+          <li>Interfere with or disrupt the integrity or performance of the platform</li>
+          <li>Resell, sublicense, or commercially exploit the platform without our express written consent</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate accounts that violate these standards.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 6 -->
+      <div class="doc-block" id="terms-content">
+        <h3><div class="block-icon">✍️</div>Your Content</h3>
+        <p>You retain ownership of all content you submit through SteadyEDGE — including your Edge descriptions, activation logs, session notes, and any other personal content ("Your Content").</p>
+        <p>By submitting content to SteadyEDGE, you grant us a limited, non-exclusive license to use, store, and process Your Content solely for the purpose of providing and improving the SteadyEDGE platform. We do not use Your Content for marketing, advertising, or sale to third parties.</p>
+        <p>You are responsible for Your Content. You represent and warrant that Your Content does not violate any third-party rights or applicable law.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 7 -->
+      <div class="doc-block" id="terms-ip">
+        <h3><div class="block-icon">©️</div>Intellectual Property</h3>
+        <p>All elements of the SteadyEDGE platform — including the name, logo, Edge mascot, design, interface, copy, methodology, and code — are the intellectual property of SteadyEDGE, LLC and are protected by applicable copyright, trademark, and other intellectual property laws.</p>
+        <p>Your subscription grants you a personal, non-exclusive, non-transferable, revocable license to access and use the platform for your own personal, non-commercial purposes. Nothing in these Terms transfers any intellectual property rights to you.</p>
+        <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, or commercially exploit any part of the SteadyEDGE platform without our prior written consent.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 8 -->
+      <div class="doc-block" id="terms-disclaimer">
+        <h3><div class="block-icon">⚠️</div>Disclaimer — Not Therapy</h3>
+        <div class="callout callout-terra">
+          <div class="callout-icon">⚠️</div>
+          <div><strong>SteadyEDGE is not a medical service, mental health service, or therapy platform.</strong> The content, tools, and guided sessions provided through SteadyEDGE are for personal development and behavioral training purposes only. They are not a substitute for professional mental health care, medical advice, diagnosis, or treatment.</div>
+        </div>
+        <p>If you are experiencing a mental health crisis, thoughts of self-harm, or any medical condition, please seek care from a qualified professional immediately.</p>
+        <p>The platform is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the platform will be uninterrupted, error-free, or produce any specific results. Individual outcomes from using SteadyEDGE will vary.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 9 -->
+      <div class="doc-block" id="terms-liability">
+        <h3><div class="block-icon">⚖️</div>Limitation of Liability</h3>
+        <p>To the fullest extent permitted by applicable law, SteadyEDGE, LLC and its owners, officers, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of or inability to use the platform, even if we have been advised of the possibility of such damages.</p>
+        <p>Our total liability to you for any claim arising from or related to these Terms or your use of SteadyEDGE shall not exceed the greater of (a) the amount you paid to SteadyEDGE in the 12 months prior to the claim, or (b) $100 USD.</p>
+        <p>Some jurisdictions do not allow the exclusion or limitation of certain warranties or liabilities, so some of the above limitations may not apply to you.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 10 -->
+      <div class="doc-block" id="terms-termination">
+        <h3><div class="block-icon">🚪</div>Termination</h3>
+        <p><strong>By you:</strong> You may stop using SteadyEDGE and cancel your subscription at any time through your account settings.</p>
+        <p><strong>By us:</strong> We reserve the right to suspend or terminate your access to SteadyEDGE at any time, with or without notice, if we believe you have violated these Terms or if we discontinue the service. In the event of termination for cause, no refund will be provided for the remaining subscription period.</p>
+        <p>Upon termination, your right to access the platform will immediately cease. Provisions of these Terms that by their nature should survive termination will survive, including intellectual property rights, disclaimers, and limitations of liability.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 11 -->
+      <div class="doc-block" id="terms-governing">
+        <h3><div class="block-icon">🏛️</div>Governing Law</h3>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of Nevada, United States, without regard to its conflict of law principles.</p>
+        <p>Any dispute arising from or relating to these Terms or your use of SteadyEDGE that cannot be resolved informally shall be submitted to binding arbitration in Clark County, Nevada, in accordance with the rules of the American Arbitration Association. You waive any right to a jury trial or to participate in a class action lawsuit.</p>
+        <p>Notwithstanding the above, SteadyEDGE may seek injunctive or other equitable relief in any court of competent jurisdiction to protect its intellectual property rights.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- 12 -->
+      <div class="doc-block" id="terms-changes">
+        <h3><div class="block-icon">📝</div>Changes to These Terms</h3>
+        <p>We may update these Terms from time to time. When we make material changes, we will notify you by email or by posting a prominent notice within the app at least 14 days before the changes take effect.</p>
+        <p>Your continued use of SteadyEDGE after the effective date of any changes constitutes your acceptance of the updated Terms. If you do not agree to the updated Terms, you must stop using the platform before the changes take effect.</p>
+      </div>
+
+      <hr class="doc-divider">
+
+      <!-- Contact -->
+      <div class="doc-block" id="terms-contact">
+        <h3><div class="block-icon">📬</div>Contact Us</h3>
+        <p>If you have any questions about these Terms, please contact us. We're a real team and we'll give you a real answer.</p>
+        <div class="contact-block">
+          <h4>🐐 SteadyEDGE Support</h4>
+          <p>Questions about your account, subscription, or these Terms? We're here.</p>
+          <p>Email: <a href="mailto:support@steadyedge.app">support@steadyedge.app</a><br>
+          Legal: <a href="mailto:legal@steadyedge.app">legal@steadyedge.app</a><br>
+          Website: <a href="https://steadyedge.app">steadyedge.app</a></p>
+        </div>
+      </div>
+
+    </div><!-- /section-terms -->
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🐐 Steady<span>EDGE</span></div>
+  <div class="footer-copy">Strength Training for Your Nervous System · © 2026 SteadyEDGE, LLC</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="mailto:support@steadyedge.app">Contact</a>
+  </nav>
+</footer>
+
+<script>
+// Tab switching
+function switchTab(tab, btn) {
+  // Buttons
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // Sections
+  document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('section-' + tab).classList.add('active');
+  // Sidebars
+  document.getElementById('sidebar-privacy').style.display = tab === 'privacy' ? 'block' : 'none';
+  document.getElementById('sidebar-terms').style.display = tab === 'terms' ? 'block' : 'none';
+  // Scroll to top of content
+  window.scrollTo({top: document.querySelector('.tab-bar').offsetTop - 10, behavior: 'smooth'});
+}
+
+// Sidebar active link on scroll
+const sections = document.querySelectorAll('.doc-block');
+const sidebarLinks = document.querySelectorAll('.sidebar a');
+
+const scrollObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      sidebarLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -60% 0px' });
+
+sections.forEach(s => scrollObs.observe(s));
+
+// URL hash support
+if (window.location.hash) {
+  const hash = window.location.hash.substring(1);
+  if (hash.startsWith('terms-')) {
+    switchTab('terms', document.querySelectorAll('.tab-btn')[1]);
+  }
+  setTimeout(() => {
+    const el = document.getElementById(hash);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, 200);
+}
+</script>
+</body>
+</html>
