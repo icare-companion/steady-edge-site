@@ -778,14 +778,114 @@ footer nav a:hover{color:white;}
 ══════════════════════════════════ */
 @media(max-width:768px){
   body > nav{padding:14px 20px;}
-  .nav-right .nav-link{display:none;}
-  .problem-grid,.edge-def-inner,.moments-grid,.changes-grid,
-  .why-inner,.who-inner,.pricing-grid{grid-template-columns:1fr;}
-  .process-grid{grid-template-columns:repeat(2,1fr);}
-  .process-grid::before{display:none;}
-  .edge-def-inner{padding:40px 28px;}
-  .result-chain{gap:4px;}
+
+  .nav-right .nav-link{
+    display:none;
+  }
+
+  .problem-grid,
+  .edge-def-inner,
+  .moments-grid,
+  .changes-grid,
+  .why-inner,
+  .who-inner,
+  .pricing-grid{
+    grid-template-columns:1fr;
+  }
+
+  .process-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+    max-width:430px;
+    margin:48px auto 0;
+  }
+
+  .process-grid::before{
+    display:none;
+  }
+
+  .process-step{
+    width:100%;
+    min-height:auto;
+    padding:44px 30px 38px;
+    border-radius:32px;
+  }
+
+  .edge-def-inner{
+    padding:40px 28px;
+  }
+
+  .result-chain{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+    max-width:360px;
+    margin:36px auto 0 !important;
+  }
+
+  .result-arrow{
+    transform:rotate(90deg);
+    text-align:center;
+    opacity:.55;
+  }
+
+  .result-item{
+    width:100%;
+    text-align:center;
+  }
+
+  .step-num {
+    width: 74px;
+    height: 74px;
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .step-icon {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  .step-title {
+    font-size: 26px;
+    line-height: 1.1;
+  }
+
+  .step-body {
+    font-size: 20px;
+    line-height: 1.45;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .step-time {
+    font-size: 16px;
+    margin-top: 26px;
+  }
+
+  .result-chain {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 360px;
+    margin: 36px auto 0 !important;
+  }
+
+  .result-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+    opacity: 0.55;
+  }
+
+  .result-item {
+    width: 100%;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 18px;
+  }
 }
+
 </style>
 </head>
 <body>
@@ -993,40 +1093,40 @@ footer nav a:hover{color:white;}
   <div class="container">
     <div class="sec-label reveal" style="text-align:center;">The Training Process</div>
     <h2 class="sec-title reveal" style="text-align:center;">How Edge trains with you</h2>
-    <p class="sec-body reveal" style="margin:0 auto 0;text-align:center;">Inside your private dashboard, you follow a structured training process with responsive feedback.</p>
+    <p class="sec-body reveal" style="margin:0 auto 0;text-align:center;">Inside your private dashboard, Edge guides you through a structured process for training steadier communication under pressure.</p>
 
     <div class="process-grid">
       <div class="process-step reveal reveal-delay-1">
         <div class="step-num">1</div>
         <div class="step-icon">🔍</div>
         <div class="step-title">Discovery</div>
-        <div class="step-body">Locate the exact Edge moment, determine if it lives inside a larger pattern, and measure your activation level.</div>
-        <div class="step-time">~15–20 min first session</div>
+        <div class="step-body">Find the exact communication moment where your system starts to protect you, then identify the pattern underneath it.</div>
+        <div class="step-time">~10–15 min first session</div>
       </div>
       <div class="process-step reveal reveal-delay-2">
         <div class="step-num">2</div>
         <div class="step-icon">✨</div>
         <div class="step-title">Clear the Charge</div>
-        <div class="step-body">Release the emotional charge connected to the situation so your nervous system can return to regulation.</div>
+        <div class="step-body">Release the emotional charge connected to the moment so your system can return to steadiness.</div>
       </div>
       <div class="process-step reveal reveal-delay-3">
         <div class="step-num">3</div>
         <div class="step-icon">🎯</div>
         <div class="step-title">Expansion Move</div>
-        <div class="step-body">Pick one small real-world action designed to strengthen your nervous system without overwhelming yourself.</div>
+        <div class="step-body">Choose one small communication rep that helps you respond with more clarity, steadiness, and choice.</div>
       </div>
       <div class="process-step reveal reveal-delay-4">
         <div class="step-num">4</div>
         <div class="step-icon">📝</div>
         <div class="step-title">Log + Track</div>
-        <div class="step-body">Record activation before, regulation during, recovery after. See your capacity expand over time.</div>
+        <div class="step-body">Record your state at the edge, your recovery time, notes, and real-time feedback after each rep.</div>
         <div class="step-time">~5 min per rep</div>
       </div>
       <div class="process-step reveal reveal-delay-4">
         <div class="step-num">5</div>
         <div class="step-icon">📈</div>
         <div class="step-title">Measurable Change</div>
-        <div class="step-body">Your defaults shift. Your nervous system responds differently. The pattern loses its grip.</div>
+        <div class="step-body">Your patterns start to shift. You recover faster, communicate more clearly, and stay steadier in real moments.</div>
       </div>
     </div>
 
@@ -1035,9 +1135,9 @@ footer nav a:hover{color:white;}
       <div class="result-arrow">→</div>
       <div class="result-item">Stability increases</div>
       <div class="result-arrow">→</div>
-      <div class="result-item">Calm returns faster</div>
+      <div class="result-item">Communication gets clearer</div>
       <div class="result-arrow">→</div>
-      <div class="result-item">Comfort zone expands</div>
+      <div class="result-item">Steadiness lasts longer</div>
     </div>
   </div>
 </section>
