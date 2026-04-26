@@ -35,25 +35,127 @@ body{
 ::-webkit-scrollbar-thumb{background:#C8DFD0;border-radius:3px;}
 
 /* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
+.site-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
   padding:14px 48px;
   background:rgba(254,250,244,0.94);
   backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
   border-bottom:1px solid rgba(200,168,130,0.15);
 }
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.nav-logo-text{font-size:21px;font-weight:900;color:var(--dark);}
-.nav-logo-text span{color:var(--sage);}
-.nav-logo-sub{font-size:10px;font-weight:700;color:var(--tan);letter-spacing:0.06em;text-transform:uppercase;margin-top:-2px;}
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.nav-logo-img{
+  width:60px;
+  height:54px;
+  object-fit:contain;
+  display:block;
+}
+
+.nav-logo-text{
+  font-size:21px;
+  font-weight:900;
+  color:var(--dark);
+}
+
+.nav-logo-text span{
+  color:var(--sage);
+}
+
+.nav-logo-sub{
+  font-size:10px;
+  font-weight:700;
+  color:var(--tan);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-top:-2px;
+}
+
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.nav-link{
+  font-size:13px;
+  font-weight:700;
+  color:var(--mid);
+  text-decoration:none;
+  letter-spacing:0.03em;
+  transition:color 0.2s;
+}
+
+.nav-link:hover{
+  color:var(--sage);
+}
+
 .nav-btn{
-  background:var(--sage);color:white;
-  padding:10px 22px;border-radius:50px;
-  font-size:13px;font-weight:800;text-decoration:none;
+  background:var(--sage);
+  color:white;
+  padding:10px 22px;
+  border-radius:50px;
+  font-size:13px;
+  font-weight:800;
+  text-decoration:none;
   transition:all 0.2s;
 }
-.nav-btn:hover{background:var(--sage-light);transform:translateY(-1px);}
+
+.nav-btn:hover{
+  background:var(--sage-light);
+  transform:translateY(-1px);
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(74,124,89,0.18);
+  border-radius: 14px;
+  background: var(--white);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 999px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+body.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+body.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* ── PAGE HEADER ── */
 .page-header{
@@ -247,45 +349,150 @@ footer nav a{
 footer nav a:hover{color:white;}
 
 @media(max-width:768px){
-  nav{padding:14px 20px;}
-  .doc-layout{grid-template-columns:1fr;}
-  .sidebar{display:none;}
-  .doc-content{padding:32px 24px 80px;}
-  .tab-btn{padding:16px 24px;font-size:13px;}
+  .site-nav{
+    padding:14px 20px;
+  }
+
+  .nav-logo-img{
+    width:52px;
+    height:48px;
+  }
+
+  .nav-logo-text{
+    font-size:19px;
+  }
+
+  .nav-logo-sub{
+    font-size:9px;
+    max-width:170px;
+    line-height:1.1;
+  }
+
+  .nav-right{
+    display:none;
+  }
+
+  .nav-toggle{
+    display:flex;
+  }
+
+  .mobile-menu{
+    position:fixed;
+    top:82px;
+    left:16px;
+    right:16px;
+    z-index:9998;
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    padding:18px;
+    background:rgba(254,250,244,0.98);
+    border:1px solid rgba(200,168,130,0.25);
+    border-radius:22px;
+    box-shadow:0 18px 48px rgba(44,48,37,0.16);
+  }
+
+  body.menu-open .mobile-menu{
+    display:flex;
+  }
+
+  .mobile-menu a{
+    color:var(--dark);
+    text-decoration:none;
+    font-size:16px;
+    font-weight:800;
+    padding:12px 14px;
+    border-radius:14px;
+  }
+
+  .mobile-menu a:hover{
+    background:var(--sage-pale);
+    color:var(--sage);
+  }
+
+  .mobile-menu-btn{
+    background:var(--sage);
+    color:white !important;
+    text-align:center;
+    margin-top:4px;
+  }
+
+  .doc-layout{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .doc-content{
+    padding:32px 24px 80px;
+  }
+
+  .tab-btn{
+    padding:16px 18px;
+    font-size:12px;
+  }
+
+  footer{
+    padding:32px 24px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  footer nav a{
+    display:inline-block;
+    margin-left:0;
+    margin-right:18px;
+    margin-top:8px;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- ── NAV ── -->
+<nav class="site-nav">
   <a href="index.html" class="nav-logo">
-    <svg width="34" height="34" viewBox="0 0 200 200" fill="none">
-      <ellipse cx="100" cy="130" rx="50" ry="42" fill="#F5EFE6" stroke="#4A7C59" stroke-width="3"/>
-      <circle cx="100" cy="78" r="32" fill="#F5EFE6" stroke="#4A7C59" stroke-width="3"/>
-      <path d="M84 52 Q74 32 78 22 Q82 14 86 22 Q88 32 84 48" fill="#C8A882"/>
-      <path d="M116 52 Q126 32 122 22 Q118 14 114 22 Q112 32 116 48" fill="#C8A882"/>
-      <circle cx="90" cy="76" r="7" fill="white"/><circle cx="110" cy="76" r="7" fill="white"/>
-      <circle cx="91" cy="76" r="4.5" fill="#2C3025"/><circle cx="111" cy="76" r="4.5" fill="#2C3025"/>
-      <circle cx="92.5" cy="74.5" r="1.8" fill="white"/><circle cx="112.5" cy="74.5" r="1.8" fill="white"/>
-      <ellipse cx="100" cy="90" rx="9" ry="6" fill="#F4C5B5"/>
-      <path d="M93 96 Q100 103 107 96" stroke="#C8968A" stroke-width="2" stroke-linecap="round" fill="none"/>
-      <rect x="72" y="162" width="12" height="28" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
-      <rect x="90" y="164" width="12" height="26" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
-      <rect x="100" y="164" width="12" height="26" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
-      <rect x="118" y="162" width="12" height="28" rx="6" fill="#E8DDD0" stroke="#4A7C59" stroke-width="2"/>
-      <rect x="72" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
-      <rect x="90" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
-      <rect x="100" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
-      <rect x="118" y="185" width="12" height="8" rx="4" fill="#4A7C59"/>
-    </svg>
+    <img 
+      src="/images/edge-head.png" 
+      alt="SteadyEDGE logo"
+      class="nav-logo-img"
+    />
     <div>
       <div class="nav-logo-text">Steady<span>EDGE</span></div>
       <div class="nav-logo-sub">Strength Training for Your Nervous System</div>
     </div>
   </a>
-  <a href="index.html" class="nav-btn">🐐 Back to Home</a>
+
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    onclick="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="legal.html" class="nav-link">Privacy</a>
+    <a href="legal.html#terms-overview" class="nav-link">Terms of Service</a>
+    <a href="https://app.steadyedge.app/trial" class="nav-btn">Start Free Trial</a>
+  </div>
 </nav>
+
+<div id="mobile-menu" class="mobile-menu">
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="legal.html" class="nav-link">Privacy</a>
+  <a href="legal.html#terms-overview" class="nav-link">Terms of Service</a>
+  <a href="https://app.steadyedge.app/login" onclick="closeMobileMenu()">Login</a>
+  <a href="https://app.steadyedge.app/trial" class="mobile-menu-btn" onclick="closeMobileMenu()">Start Free Trial</a>
+</div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -705,6 +912,29 @@ footer nav a:hover{color:white;}
 </footer>
 
 <script>
+
+// Mobile menu
+function toggleMobileMenu() {
+  const isOpen = document.body.classList.toggle("menu-open");
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+}
+
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Open menu");
+  }
+}
+
 // Tab switching
 function switchTab(tab, btn) {
   // Buttons

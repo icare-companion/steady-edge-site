@@ -779,9 +779,62 @@ footer nav a:hover{color:white;}
 @media(max-width:768px){
   body > nav{padding:14px 20px;}
 
-  .nav-right .nav-link{
-    display:none;
-  }
+  .nav-right {
+  gap: 10px;
+}
+
+.nav-right .nav-link {
+  display: none;
+}
+
+.nav-right .nav-btn {
+  display: none;
+}
+
+.nav-toggle {
+  display: flex;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 82px;
+  left: 16px;
+  right: 16px;
+  z-index: 9998;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: rgba(254,250,244,0.98);
+  border: 1px solid rgba(200,168,130,0.25);
+  border-radius: 22px;
+  box-shadow: 0 18px 48px rgba(44,48,37,0.16);
+}
+
+body.menu-open .mobile-menu {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+
+.mobile-menu a:hover {
+  background: var(--sage-pale);
+  color: var(--sage);
+}
+
+.mobile-menu-btn {
+  background: var(--sage);
+  color: white !important;
+  text-align: center;
+  margin-top: 4px;
+}
 
   .problem-grid,
   .edge-def-inner,
@@ -891,18 +944,32 @@ footer nav a:hover{color:white;}
 <body>
 
 <!-- ── NAV ── -->
-<nav>
-  <a href="#" class="nav-logo">
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
     <img 
-  src="/images/edge-head.png" 
-  alt="SteadyEDGE logo"
-  class="nav-logo-img"
-/>
+      src="/images/edge-head.png" 
+      alt="SteadyEDGE logo"
+      class="nav-logo-img"
+    />
     <div>
       <div class="nav-logo-text">Steady<span>EDGE</span></div>
       <div class="nav-logo-sub">Strength Training for Your Nervous System</div>
     </div>
   </a>
+
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    onclick="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <div class="nav-right">
     <a href="#how" class="nav-link">How It Works</a>
     <a href="#pricing" class="nav-link">Pricing</a>
@@ -910,6 +977,14 @@ footer nav a:hover{color:white;}
     <a href="https://app.steadyedge.app/trial" class="nav-btn">Start Free Trial</a>
   </div>
 </nav>
+
+<div id="mobile-menu" class="mobile-menu">
+  <a href="#how" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="https://app.steadyedge.app/login" onclick="closeMobileMenu()">Login</a>
+  <a href="https://app.steadyedge.app/trial" class="mobile-menu-btn" onclick="closeMobileMenu()">Start Free Trial</a>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -1356,6 +1431,29 @@ footer nav a:hover{color:white;}
 </footer>
 
 <script>
+
+// Mobile menu
+function toggleMobileMenu() {
+  const isOpen = document.body.classList.toggle("menu-open");
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+}
+
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Open menu");
+  }
+}
+  
 // FAQ
 function toggleFaq(el) {
   const item = el.parentElement;
