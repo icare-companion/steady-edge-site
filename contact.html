@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact SteadyEDGE</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sage: #4A7C59;
+  --sage-light: #6B9E78;
+  --sage-pale: #EAF2EC;
+  --tan: #C8A882;
+  --tan-light: #F5EDE0;
+  --terra: #D4845A;
+  --dark: #2C3025;
+  --mid: #5A6350;
+  --cream: #FEFAF4;
+  --white: #FFFFFF;
+  --off: #F7F2EA;
+  --border: #E8E0D4;
+  --shadow: rgba(44,48,37,0.08);
+  --shadow-md: rgba(44,48,37,0.14);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+/* ── NAV ── */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 48px;
+  background: rgba(254,250,244,0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200,168,130,0.15);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  width: 60px;
+  height: 54px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-logo-text {
+  font-size: 21px;
+  font-weight: 900;
+  color: var(--dark);
+}
+
+.nav-logo-text span {
+  color: var(--sage);
+}
+
+.nav-logo-sub {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--tan);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: -2px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--sage);
+}
+
+.nav-btn {
+  background: var(--sage);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: var(--sage-light);
+  transform: translateY(-1px);
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(74,124,89,0.18);
+  border-radius: 14px;
+  background: var(--white);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+}
+
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 999px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+body.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+body.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── PAGE ── */
+.page-header {
+  padding: 150px 24px 70px;
+  background: var(--dark);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 620px;
+  height: 620px;
+  background: rgba(74,124,89,0.08);
+  border-radius: 50%;
+}
+
+.page-header h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  color: white;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  position: relative;
+}
+
+.page-header p {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65;
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.contact-section {
+  padding: 80px 24px 100px;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  background: var(--white);
+  border-radius: 28px;
+  box-shadow: 0 8px 36px var(--shadow);
+  padding: 44px;
+}
+
+.contact-card h2 {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.contact-card p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--mid);
+  margin-bottom: 24px;
+}
+
+.contact-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.contact-item {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.contact-label {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--terra);
+  margin-bottom: 6px;
+}
+
+.contact-item a {
+  color: var(--sage);
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--sage-light);
+}
+
+.contact-note {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--mid);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 40px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+}
+
+.footer-logo span {
+  color: var(--sage-light);
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 600;
+}
+
+footer nav a {
+  color: rgba(255,255,255,0.38);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 24px;
+  transition: color 0.2s;
+}
+
+footer nav a:hover {
+  color: white;
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px) {
+  .site-nav {
+    padding: 14px 20px;
+  }
+
+  .nav-logo-img {
+    width: 52px;
+    height: 48px;
+  }
+
+  .nav-logo-text {
+    font-size: 19px;
+  }
+
+  .nav-logo-sub {
+    font-size: 9px;
+    max-width: 170px;
+    line-height: 1.1;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 82px;
+    left: 16px;
+    right: 16px;
+    z-index: 9998;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px;
+    background: rgba(254,250,244,0.98);
+    border: 1px solid rgba(200,168,130,0.25);
+    border-radius: 22px;
+    box-shadow: 0 18px 48px rgba(44,48,37,0.16);
+  }
+
+  body.menu-open .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menu a {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .mobile-menu a:hover {
+    background: var(--sage-pale);
+    color: var(--sage);
+  }
+
+  .mobile-menu-btn {
+    background: var(--sage);
+    color: white !important;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .page-header {
+    padding: 130px 22px 58px;
+  }
+
+  .contact-section {
+    padding: 56px 20px 80px;
+  }
+
+  .contact-card {
+    padding: 30px 24px;
+    border-radius: 24px;
+  }
+
+  .contact-card h2 {
+    font-size: 26px;
+  }
+
+  footer {
+    padding: 32px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  footer nav a {
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 18px;
+    margin-top: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <img 
+      src="/images/edge-head.png" 
+      alt="SteadyEDGE logo"
+      class="nav-logo-img"
+    />
+    <div>
+      <div class="nav-logo-text">Steady<span>EDGE</span></div>
+      <div class="nav-logo-sub">Strength Training for Your Nervous System</div>
+    </div>
+  </a>
+
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    onclick="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-right">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="https://app.steadyedge.app/trial" class="nav-btn">Start Free Trial</a>
+  </div>
+</nav>
+
+<div id="mobile-menu" class="mobile-menu">
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
+  <a href="https://app.steadyedge.app/trial" class="mobile-menu-btn" onclick="closeMobileMenu()">Start Free Trial</a>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<header class="page-header">
+  <h1>Contact SteadyEDGE</h1>
+  <p>Questions, support, or account help? We’re here.</p>
+</header>
+
+<!-- ── CONTACT CONTENT ── -->
+<main class="contact-section">
+  <div class="container">
+    <div class="contact-card">
+      <h2>How to reach us</h2>
+      <p>We’re a small team, but we read every message. Email us and we’ll respond as soon as we can.</p>
+
+      <div class="contact-list">
+  <div class="contact-item">
+    <div class="contact-label">Contact SteadyEDGE</div>
+    <a href="mailto:support@steadyedge.app">support@steadyedge.app</a>
+  </div>
+</div>
+
+      <p class="contact-note">For billing or account questions, please include the email address connected to your SteadyEDGE account so we can help you faster.</p>
+    </div>
+  </div>
+</main>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Steady<span>EDGE</span></div>
+  <div class="footer-copy">Strength Training for Your Nervous System · © 2026 SteadyEDGE, LLC</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="legal.html">Privacy</a>
+    <a href="legal.html#terms-overview">Terms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+// Mobile menu
+function toggleMobileMenu() {
+  const isOpen = document.body.classList.toggle("menu-open");
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+}
+
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Open menu");
+  }
+}
+</script>
+
+</body>
+</html>
