@@ -202,8 +202,12 @@ body.menu-open .nav-toggle span:nth-child(3) {
 .tab-bar{
   background:var(--white);
   border-bottom:1px solid var(--border);
-  position:sticky;top:60px;z-index:50;
-  display:flex;justify-content:center;gap:0;
+  position:sticky;
+  top:82px;
+  z-index:50;
+  display:flex;
+  justify-content:center;
+  gap:0;
 }
 .tab-btn{
   padding:18px 48px;
@@ -914,6 +918,8 @@ function showLegalTabFromLink(tab) {
   if (button) {
     switchTab(tab, button);
   }
+
+  history.replaceState(null, "", tab === "terms" ? "#terms" : "#privacy");
 }
 
 // Tab switching
@@ -921,11 +927,17 @@ function switchTab(tab, btn) {
   // Buttons
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+
   // Sections
   document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-' + tab).classList.add('active');
-  // Scroll to top of content
-  window.scrollTo({top: document.querySelector('.tab-bar').offsetTop - 10, behavior: 'smooth'});
+
+  // Scroll to top of legal content
+  const contentTop = document.querySelector('.page-header').offsetTop;
+  window.scrollTo({
+    top: contentTop,
+    behavior: 'smooth'
+  });
 }
 
 // URL hash support
