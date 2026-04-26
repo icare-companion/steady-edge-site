@@ -281,9 +281,14 @@ body.menu-open .nav-toggle span:nth-child(3) {
   color:var(--mid);margin-bottom:14px;
 }
 .doc-block p:last-child{margin-bottom:0;}
-.doc-block ul,.doc-block ol{
+.doc-block ul,
+.doc-block ol{
   margin:10px 0 14px 0;
-  display:flex;flex-direction:column;gap:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  list-style:none;
+  padding-left:0;
 }
 .doc-block ul li,.doc-block ol li{
   font-family:'Lora',serif;font-size:15px;line-height:1.7;
@@ -532,7 +537,6 @@ footer nav a:hover{color:white;}
         <p>SteadyEDGE ("we," "us," or "our") operates the SteadyEDGE app and website (steadyedge.app). This Privacy Policy applies to information collected through our platform, including your account, app usage, training sessions, and communications with us.</p>
         <p>By using SteadyEDGE, you agree to the collection and use of information as described in this policy. If you do not agree, please discontinue use of the platform.</p>
         <div class="callout callout-sage">
-          <div class="callout-icon">💡</div>
           <div><strong>The short version:</strong> We collect only what we need to make the app work and improve it. We never sell your personal data. Your session content belongs to you.</div>
         </div>
       </div>
@@ -864,7 +868,7 @@ footer nav a:hover{color:white;}
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">🐐 Steady<span>EDGE</span></div>
+  <div class="footer-logo">Steady<span>EDGE</span></div>
   <div class="footer-copy">Strength Training for Your Nervous System · © 2026 SteadyEDGE, LLC</div>
   <nav>
     <a href="index.html">Home</a>
