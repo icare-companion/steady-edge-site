@@ -929,16 +929,21 @@ function switchTab(tab, btn) {
 }
 
 // URL hash support
-if (window.location.hash) {
+function handleLegalHash() {
   const hash = window.location.hash.substring(1);
-  if (hash.startsWith('terms-')) {
-    switchTab('terms', document.querySelectorAll('.tab-btn')[1]);
+
+  if (hash === 'terms' || hash.startsWith('terms-')) {
+    showLegalTabFromLink('terms');
+    return;
   }
-  setTimeout(() => {
-    const el = document.getElementById(hash);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }, 200);
+
+  if (hash === 'privacy' || hash.startsWith('priv-')) {
+    showLegalTabFromLink('privacy');
+  }
 }
+
+handleLegalHash();
+window.addEventListener('hashchange', handleLegalHash);
 </script>
 </body>
 </html>
