@@ -776,6 +776,47 @@ footer nav a:hover{color:white;}
 /* ══════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════ */
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(74,124,89,0.18);
+  border-radius: 14px;
+  background: var(--white);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+}
+
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 999px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+body.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+body.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 @media(max-width:768px){
   body > nav{padding:14px 20px;}
 
@@ -792,7 +833,7 @@ footer nav a:hover{color:white;}
 }
 
 .nav-toggle {
-  display: none;
+  display: flex;
 }
 
 .mobile-menu {
