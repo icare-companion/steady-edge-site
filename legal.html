@@ -218,8 +218,9 @@ body.menu-open .nav-toggle span:nth-child(3) {
 
 /* ── LAYOUT ── */
 .doc-layout{
-  display:grid;grid-template-columns:260px 1fr;
-  max-width:1100px;margin:0 auto;
+  display:block;
+  max-width:900px;
+  margin:0 auto;
   min-height:100vh;
 }
 
@@ -244,7 +245,10 @@ body.menu-open .nav-toggle span:nth-child(3) {
 .sidebar a.active{color:var(--sage);background:var(--sage-pale);border-left-color:var(--sage);}
 
 /* ── CONTENT ── */
-.doc-content{padding:52px 60px 100px;}
+.doc-content{
+  padding:52px 32px 100px;
+}
+
 .doc-section{
   display:none;
   max-width:720px;
@@ -509,40 +513,6 @@ footer nav a:hover{color:white;}
 
 <!-- MAIN LAYOUT -->
 <div class="doc-layout">
-
-  <!-- ══════════ PRIVACY SIDEBAR ══════════ -->
-  <aside class="sidebar" id="sidebar-privacy">
-    <div class="sidebar-heading">Privacy Policy</div>
-    <a href="#priv-overview" class="active">Overview</a>
-    <a href="#priv-collect">Information We Collect</a>
-    <a href="#priv-use">How We Use It</a>
-    <a href="#priv-store">How We Store It</a>
-    <a href="#priv-share">Who We Share With</a>
-    <a href="#priv-sensitive">Sensitive Information</a>
-    <a href="#priv-cookies">Cookies</a>
-    <a href="#priv-rights">Your Rights</a>
-    <a href="#priv-children">Children</a>
-    <a href="#priv-changes">Policy Changes</a>
-    <a href="#priv-contact">Contact Us</a>
-  </aside>
-
-  <!-- ══════════ TERMS SIDEBAR ══════════ -->
-  <aside class="sidebar" id="sidebar-terms" style="display:none;">
-    <div class="sidebar-heading">Terms of Service</div>
-    <a href="#terms-overview" class="active">Overview</a>
-    <a href="#terms-eligibility">Eligibility</a>
-    <a href="#terms-account">Your Account</a>
-    <a href="#terms-subscription">Subscription & Billing</a>
-    <a href="#terms-use">Acceptable Use</a>
-    <a href="#terms-content">Your Content</a>
-    <a href="#terms-ip">Intellectual Property</a>
-    <a href="#terms-disclaimer">Disclaimer</a>
-    <a href="#terms-liability">Limitation of Liability</a>
-    <a href="#terms-termination">Termination</a>
-    <a href="#terms-governing">Governing Law</a>
-    <a href="#terms-changes">Changes to Terms</a>
-    <a href="#terms-contact">Contact Us</a>
-  </aside>
 
   <!-- ══════════ CONTENT ══════════ -->
   <main class="doc-content">
@@ -943,29 +913,9 @@ function switchTab(tab, btn) {
   // Sections
   document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
   document.getElementById('section-' + tab).classList.add('active');
-  // Sidebars
-  document.getElementById('sidebar-privacy').style.display = tab === 'privacy' ? 'block' : 'none';
-  document.getElementById('sidebar-terms').style.display = tab === 'terms' ? 'block' : 'none';
   // Scroll to top of content
   window.scrollTo({top: document.querySelector('.tab-bar').offsetTop - 10, behavior: 'smooth'});
 }
-
-// Sidebar active link on scroll
-const sections = document.querySelectorAll('.doc-block');
-const sidebarLinks = document.querySelectorAll('.sidebar a');
-
-const scrollObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      sidebarLinks.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-      });
-    }
-  });
-}, { rootMargin: '-20% 0px -60% 0px' });
-
-sections.forEach(s => scrollObs.observe(s));
 
 // URL hash support
 if (window.location.hash) {
