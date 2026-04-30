@@ -185,6 +185,15 @@ body > nav{
   justify-content:center;position:relative;
   animation:fadeUp 0.7s ease 0.3s both;
 }
+
+.hero-sub {
+  margin-bottom: 12px;
+}
+
+.hero-actions {
+  margin-top: 0;
+}
+
 .btn-primary{
   background:var(--sage);color:white;
   padding:17px 40px;border-radius:50px;
@@ -202,6 +211,76 @@ body > nav{
   margin-top:18px;font-size:13px;color:var(--tan);
   font-weight:600;position:relative;
   animation:fadeUp 0.7s ease 0.4s both;
+}
+
+.scroll-arrow {
+  position: relative;
+  z-index: 2;
+  margin-top: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+
+.scroll-arrow span {
+  width: 18px;
+  height: 18px;
+  border-right: 4px solid #4a7c59;
+  border-bottom: 4px solid #4a7c59;
+  transform: rotate(45deg);
+}
+
+.scroll-arrow::before,
+.scroll-arrow::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 124, 89, 0.22);
+  animation: arrowPulse 1.6s ease-out infinite;
+}
+
+.scroll-arrow::before {
+  width: 42px;
+  height: 42px;
+}
+
+.scroll-arrow::after {
+  width: 58px;
+  height: 58px;
+  animation-delay: 0.35s;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes arrowPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-arrow,
+  .scroll-arrow::before,
+  .scroll-arrow::after {
+    animation: none;
+  }
 }
 
 /* ══════════════════════════════════
@@ -1096,15 +1175,17 @@ body.menu-open .mobile-menu {
   <h1>Strength Training<br>for your <span class="hl">Nervous System</span></h1>
   <p class="hero-desc">A guided training app for the moments communication gets hard and your nervous system takes over.</p>
   <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
-
   <div class="hero-actions">
     <a href="https://app.steadyedge.app/trial" class="btn-primary">Start Your 7-Day Free Trial</a>
   </div>
   <p class="hero-fine">No hype. No performance pressure. Just small, steady reps for the moments you want to handle differently.</p>
+  <a href="#video-walkthrough" class="scroll-arrow" aria-label="Scroll to video walkthrough">
+  <span></span>
+</a>
 </section>
 
 <!-- ── VIDEO WALKTHROUGH ── -->
-<section class="final-cta how-it-works-video">
+<section id="video-walkthrough" class="final-cta how-it-works-video">
   <h2>See how SteadyEDGE helps you find your first Edge</h2>
 
   <p>
