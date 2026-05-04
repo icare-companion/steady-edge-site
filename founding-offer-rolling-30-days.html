@@ -131,6 +131,21 @@ body > nav{
   position:relative;overflow:hidden;
 }
 
+.hero-kicker {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.hero-main {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+}
+
 /* Nature-inspired background: layered soft hills */
 .hero-bg{
   position:absolute;inset:0;pointer-events:none;
@@ -1267,10 +1282,13 @@ body.menu-open .mobile-menu {
   class="hero-goat"
 />
 
-  <h2>The 30-Day SteadyEDGE Experience</span></h2>
-  <h2>when communication gets hard.</span></h2>
-  <h1><span class="hl">Build steadiness</span></h1>
-    <h2>when communication gets hard.</span></h2>
+  <h1>
+  <span class="hero-kicker">The 30-Day SteadyEDGE Experience</span>
+  <span class="hero-main">
+    <span class="hl">Build steadiness</span><br>
+    when communication gets hard.
+  </span>
+  </h1>
   <p class="hero-desc">SteadyEDGE is a guided training app that helps you identify the moment your nervous system takes over, understand your communication pattern, and practice one steadier response in real life.</p>
   <p class="hero-sub">$99/year · includes your first 30 days of weekly live Zoom support</p>
   <div class="hero-actions">
