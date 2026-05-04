@@ -495,7 +495,29 @@ section{padding:100px 24px;}
 /* ══════════════════════════════════
    MOMENTS — PERSONAL & PROFESSIONAL
 ══════════════════════════════════ */
-.moments{background:var(--cream);}
+.moments {
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.moments::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -90px;
+  width: 320px;
+  height: 320px;
+  background: rgba(200, 168, 130, 0.16);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.moments .container {
+  position: relative;
+  z-index: 1;
+}
+
 .moments-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:28px;
   margin-top:52px;
@@ -1071,6 +1093,28 @@ section{padding:100px 24px;}
 }
 .btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 52px rgba(0,0,0,0.22);}
 .cta-fine{margin-top:18px;font-size:13px;color:rgba(255,255,255,0.55);position:relative;}
+
+/* Lighten the video walkthrough section only */
+.final-cta.how-it-works-video {
+  background: #EAD7BE;
+}
+
+.final-cta.how-it-works-video::before {
+  background: rgba(212, 132, 90, 0.08);
+}
+
+.final-cta.how-it-works-video::after {
+  background: rgba(74, 124, 89, 0.06);
+}
+
+.final-cta.how-it-works-video h2 {
+  color: var(--dark);
+}
+
+.final-cta.how-it-works-video p {
+  color: var(--mid);
+}
+
 
 /* ══════════════════════════════════
    FOOTER
@@ -1854,7 +1898,7 @@ body.menu-open .mobile-menu {
   alt="Edge the goat"
   class="goat-cta"
 />
-  <h2>You don’t have to keep replaying the same conversation.</h2>
+  <h2>Stop replaying the conversation. Start training a steadier response.</h2>
   <p>Join SteadyEDGE for the year and use your first 30 days of live support to practice steadier responses in real life.</p>
   <a href="#pricing" class="btn-white">Join the 30-Day Experience</a>
   <p class="cta-fine" style="margin-top:20px;">$99/year founding member price · first 30 days of live support included</p>
