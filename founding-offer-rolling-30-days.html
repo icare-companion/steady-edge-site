@@ -933,10 +933,22 @@ section{padding:100px 24px;}
 .price-amt{font-size:54px;font-weight:900;color:white;line-height:1;}
 .price-amt span{font-size:20px;font-weight:600;}
 .price-per{font-size:12px;color:rgba(255,255,255,0.45);margin:6px 0 28px;}
-.price-btn{
-  display:block;width:100%;padding:15px;border-radius:50px;
-  font-size:16px;font-weight:800;text-decoration:none;text-align:center;
-  transition:all 0.2s;
+.price-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+  box-shadow:0 8px 40px rgba(0,0,0,0.15);
+  transition: all 0.2s;
+}
+
+.price-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 52px rgba(0, 0, 0, 0.18);
 }
 .price-card.feat .price-btn{background:white;color:var(--sage);}
 .price-card.feat .price-btn:hover{background:var(--cream);}
@@ -1812,7 +1824,7 @@ body.menu-open .mobile-menu {
 
       <!-- Replace this href with your Stripe checkout link for the $99/year founding product when ready. -->
       <a href="https://app.steadyedge.app/trial" class="price-btn">Join the 30-Day Experience</a>
-      <p class="offer-note">This offer is available for a limited time. <br>After the founding window closes, weekly live coaching support may no longer be included.</p>
+      <p class="offer-note">This founding offer is available for a limited time. <br>After the founding window closes, weekly live coaching support may no longer be included.</p>
     </div>
   </div>
 </section>
