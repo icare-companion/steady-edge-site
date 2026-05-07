@@ -272,6 +272,98 @@ body > nav{
   animation: fadeUp 0.7s ease 0.3s both;
 }
 
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-primary{
+  background:var(--sage);color:white;
+  padding:17px 40px;border-radius:50px;
+  font-size:17px;font-weight:800;text-decoration:none;
+  box-shadow:0 8px 36px rgba(74,124,89,0.35);
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{background:var(--sage-light);transform:translateY(-2px);box-shadow:0 14px 44px rgba(74,124,89,0.4);}
+.btn-ghost{
+  color:var(--mid);font-size:15px;font-weight:700;
+  text-decoration:none;padding:17px 20px;transition:color 0.2s;
+}
+.btn-ghost:hover{color:var(--sage);}
+.hero-fine{
+  margin-top:18px;font-size:13px;color:var(--tan);
+  font-weight:600;position:relative;
+  animation:fadeUp 0.7s ease 0.4s both;
+}
+
+.scroll-arrow {
+  position: relative;
+  z-index: 2;
+  margin-top: 5px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+
+.scroll-arrow span {
+  width: 18px;
+  height: 18px;
+  border-right: 4px solid #4a7c59;
+  border-bottom: 4px solid #4a7c59;
+  transform: rotate(45deg);
+}
+
+.scroll-arrow::before,
+.scroll-arrow::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 124, 89, 0.22);
+  animation: arrowPulse 1.6s ease-out infinite;
+}
+
+.scroll-arrow::before {
+  width: 42px;
+  height: 42px;
+}
+
+.scroll-arrow::after {
+  width: 58px;
+  height: 58px;
+  animation-delay: 0.35s;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes arrowPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-arrow,
   .scroll-arrow::before,
@@ -280,34 +372,73 @@ body > nav{
   }
 }
 
-@media (max-width: 900px){
+@media(max-width:900px){
   .hero{
-    padding: 110px 20px 70px;
+    min-height: auto;
+    padding: 115px 24px 70px;
+    text-align: center;
+    justify-content: center;
   }
 
   .hero::before{
-    background-position: 72% center;
-    background-size: cover;
+    background-position: 74% center;
+  }
+
+  .hero::after{
+    background: linear-gradient(
+      180deg,
+      rgba(254,250,244,0.96) 0%,
+      rgba(254,250,244,0.92) 48%,
+      rgba(254,250,244,0.78) 100%
+    );
+  }
+
+  .hero-inner{
+    margin: 0 auto;
+  }
+
+  .hero-desc{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions{
+    justify-content: center;
   }
 }
 
-@media (max-width: 640px){
+@media(max-width:640px){
   .hero{
-    padding: 100px 18px 60px;
+    padding: 105px 18px 60px;
   }
 
   .hero::before{
     background-position: 78% top;
-    background-size: cover;
+    opacity: 0.28;
   }
 
   .hero h1{
-    font-size: clamp(38px, 10vw, 52px);
+    font-size: clamp(38px, 11vw, 52px);
+  }
+
+  .hero-kicker{
+    font-size: 18px;
   }
 
   .hero-desc{
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.55;
+  }
+
+  .hero-sub{
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .btn-primary{
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
   }
 }
 
@@ -1401,30 +1532,31 @@ body.menu-open .mobile-menu {
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-bg">
-    <div class="hill hill-1"></div>
-    <div class="hill hill-2"></div>
-    <div class="hill hill-3"></div>
-    <div class="hill hill-4"></div>
-  </div>
+  <div class="hero-inner">
+    <div class="hero-badge">🌿 Founding Member Invitation</div>
 
- <div class="hero-badge">🌿 Founding Member Invitation</div>
+    <h1>
+      <span class="hero-kicker">The 30-Day SteadyEDGE Experience</span>
+      <span class="hero-main">
+        Train the Moment <br>
+        Communication Gets <span class="hl">Hard</span>
+      </span>
+    </h1>
 
-  <h1>
-  <span class="hero-kicker">The 30-Day SteadyEDGE Experience</span>
-  <span class="hero-main">Build 
-    <span class="hl">steadiness</span><br>
-    <span class="hero-main-smaller">when communication gets hard.</span>
-  </span>
-  </h1>
-  <p class="hero-desc">SteadyEDGE is a guided training app for the moments when communication becomes challenging and your nervous system takes over.</p>
-  <div class="hero-actions">
-    <a href="https://app.steadyedge.app/trial" class="btn-primary">Join the 30-Day Experience</a>
+    <p class="hero-desc">
+      SteadyEDGE helps you practice one small expansion move at a time so you can speak more clearly, stay grounded, and recover faster after hard conversations.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://app.steadyedge.app/trial" class="btn-primary">Join the 30-Day Experience</a>
+    </div>
+
+    <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
+
+    <a href="#problem" class="scroll-arrow" aria-label="Scroll to the next section">
+      <span></span>
+    </a>
   </div>
-  <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
-  <a href="#problem" class="scroll-arrow" aria-label="Scroll to video walkthrough">
-  <span></span>
-</a>
 </section>
 
 <!-- ── PROBLEM ── -->
