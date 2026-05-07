@@ -136,6 +136,12 @@ body > nav{
   position:absolute;inset:0;pointer-events:none;
   overflow:hidden;
 }
+
+.hero-main-smaller {
+  display: inline-block;
+  font-size: 80%;
+}
+
 .hill{
   position:absolute;border-radius:50%;
   filter:blur(60px);opacity:0.3;
@@ -165,7 +171,7 @@ body > nav{
 }
 
 .hero-goat{
-  width: 200px;height:238px;
+  width: 400px;height:396px;
   animation:floatGoat 4s ease-in-out infinite, fadeUp 0.7s ease 0.1s both;
   filter:drop-shadow(0 16px 32px rgba(74,124,89,0.2));
   position:relative;
@@ -190,13 +196,13 @@ body > nav{
 .hero-desc{
   font-family:'Lora',serif;
   font-size:clamp(17px,2.2vw,21px);
-  color:var(--mid);max-width:560px;line-height:1.65;
-  margin:0 auto 12px;position:relative;
+  color:var(--mid);max-width:800px;line-height:1.65;
+  margin:0 auto 12px;position:relative; margin-bottom: 22px;
   animation:fadeUp 0.7s ease 0.2s both;
 }
 .hero-sub{
   font-size:14px;color:var(--tan);font-weight:700;
-  letter-spacing:0.05em;text-transform:uppercase;margin-bottom:40px;
+  letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0px; margin-top:20px;
   position:relative;animation:fadeUp 0.7s ease 0.25s both;
 }
 .hero-actions{
@@ -211,7 +217,9 @@ body > nav{
 
 .hero-actions {
   margin-top: 0;
+  margin-bottom: 0;
 }
+
 
 .btn-primary{
   background:var(--sage);color:white;
@@ -1207,18 +1215,21 @@ body.menu-open .mobile-menu {
 
  <div class="hero-badge">🌿 Meet Edge — your master edge navigator</div>
   <img 
-  src="/images/EdgeWebsiteIntro.png" 
+  src="/images/EdgeWebsiteIntroStanding.png" 
   class="hero-goat"
 />
 
-
-  <h1>Strength Training<br>for your <span class="hl">Nervous System</span></h1>
-  <p class="hero-desc">A guided training app for the moments communication gets hard and your nervous system takes over.</p>
-  <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
+  <h1>
+  <span class="hero-main">Build 
+    <span class="hl">steadiness</span><br>
+    <span class="hero-main-smaller">when communication gets hard.</span>
+  </span>
+  </h1>
+  <p class="hero-desc">SteadyEDGE gives you a guided way to practice speaking clearly and staying grounded in difficult conversations.</p>
   <div class="hero-actions">
     <a href="https://app.steadyedge.app/trial" class="btn-primary">Start Your 7-Day Free Trial</a>
   </div>
-  <p class="hero-fine">No hype. No performance pressure. Just small, steady reps for the moments you want to handle differently.</p>
+  <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
   <a href="#problem" class="scroll-arrow" aria-label="Scroll to video walkthrough">
   <span></span>
 </a>
