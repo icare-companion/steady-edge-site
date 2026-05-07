@@ -126,71 +126,40 @@ body > nav{
    HERO
 ══════════════════════════════════ */
 .hero{
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: left;
-  padding: 130px 48px 90px;
+  padding: 120px 24px 56px;
   background: var(--cream);
   position: relative;
   overflow: hidden;
-  isolation: isolate;
-}
-
-.hero::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/hero-goat-bg.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  z-index: -2;
-}
-
-.hero::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(254,250,244,0.96) 0%,
-    rgba(254,250,244,0.88) 38%,
-    rgba(254,250,244,0.35) 68%,
-    rgba(254,250,244,0.08) 100%
-  );
-  z-index: -1;
 }
 
 .hero-inner{
-  width: min(680px, 100%);
-  position: relative;
-  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 620px) minmax(280px, 420px);
+  gap: 28px;
+  align-items: center;
+}
+
+.hero-copy{
+  max-width: 620px;
+}
+
+.hero-visual{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.hero-goat{
+  width: min(100%, 390px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 12px 28px rgba(44,48,37,0.12));
 }
 
 .hero-bg{
   display: none;
-}
-
-.hero-kicker {
-  display: block;
-  font-family: 'Nunito', sans-serif;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 900;
-  line-height: 1.15;
-  color: var(--tan);
-  margin-bottom: 16px;
-}
-
-.hero-main {
-  display: block;
-  font-family: 'Nunito', sans-serif;
-}
-
-.hero-main-smaller {
-  display: inline;
-  font-size: 100%;
 }
 
 .hero-badge{
@@ -206,20 +175,36 @@ body > nav{
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  margin-bottom: 24px;
-  position: relative;
-  animation: fadeUp 0.6s ease both;
+  margin-bottom: 22px;
+}
+
+.hero-kicker {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--tan);
+  margin-bottom: 14px;
+}
+
+.hero-main {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+}
+
+.hero-main-smaller {
+  display: inline;
+  font-size: 100%;
 }
 
 .hero h1{
-  font-size: clamp(48px, 6vw, 76px);
+  font-size: clamp(44px, 6vw, 74px);
   font-weight: 900;
   line-height: 1.02;
   letter-spacing: -0.035em;
   color: var(--dark);
-  margin-bottom: 24px;
-  position: relative;
-  animation: fadeUp 0.7s ease 0.15s both;
+  margin-bottom: 22px;
 }
 
 .hero h1 .hl{
@@ -246,9 +231,15 @@ body > nav{
   color: var(--mid);
   max-width: 620px;
   line-height: 1.65;
-  margin: 0 0 28px;
-  position: relative;
-  animation: fadeUp 0.7s ease 0.2s both;
+  margin: 0 0 26px;
+}
+
+.hero-actions{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .hero-sub{
@@ -258,54 +249,33 @@ body > nav{
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-top: 18px;
-  position: relative;
-  animation: fadeUp 0.7s ease 0.25s both;
-}
-
-.hero-actions{
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  position: relative;
-  animation: fadeUp 0.7s ease 0.3s both;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .btn-primary{
-  background:var(--sage);color:white;
-  padding:17px 40px;border-radius:50px;
-  font-size:17px;font-weight:800;text-decoration:none;
-  box-shadow:0 8px 36px rgba(74,124,89,0.35);
-  transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
+  background: var(--sage);
+  color: white;
+  padding: 17px 40px;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 36px rgba(74,124,89,0.35);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.btn-primary:hover{background:var(--sage-light);transform:translateY(-2px);box-shadow:0 14px 44px rgba(74,124,89,0.4);}
-.btn-ghost{
-  color:var(--mid);font-size:15px;font-weight:700;
-  text-decoration:none;padding:17px 20px;transition:color 0.2s;
-}
-.btn-ghost:hover{color:var(--sage);}
-.hero-fine{
-  margin-top:18px;font-size:13px;color:var(--tan);
-  font-weight:600;position:relative;
-  animation:fadeUp 0.7s ease 0.4s both;
+
+.btn-primary:hover{
+  background: var(--sage-light);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 44px rgba(74,124,89,0.4);
 }
 
 .scroll-arrow {
   position: relative;
   z-index: 2;
-  margin-top: 5px;
+  margin-top: 20px;
   width: 46px;
   height: 46px;
   border-radius: 999px;
@@ -345,12 +315,8 @@ body > nav{
 }
 
 @keyframes arrowBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  45% {
-    transform: translateY(10px);
-  }
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(10px); }
 }
 
 @keyframes arrowPulse {
@@ -372,49 +338,38 @@ body > nav{
   }
 }
 
-@media(max-width:900px){
+@media(max-width: 900px){
   .hero{
-    min-height: auto;
-    padding: 115px 24px 70px;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .hero::before{
-    background-position: 74% center;
-  }
-
-  .hero::after{
-    background: linear-gradient(
-      180deg,
-      rgba(254,250,244,0.96) 0%,
-      rgba(254,250,244,0.92) 48%,
-      rgba(254,250,244,0.78) 100%
-    );
+    padding: 110px 20px 56px;
   }
 
   .hero-inner{
-    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .hero-desc{
-    margin-left: auto;
-    margin-right: auto;
+  .hero-copy{
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-visual{
+    justify-content: center;
   }
 
   .hero-actions{
     justify-content: center;
   }
+
+  .hero-goat{
+    width: min(100%, 320px);
+  }
 }
 
-@media(max-width:640px){
+@media(max-width: 640px){
   .hero{
-    padding: 105px 18px 60px;
-  }
-
-  .hero::before{
-    background-position: 78% top;
-    opacity: 0.28;
+    padding: 100px 18px 48px;
   }
 
   .hero h1{
@@ -439,6 +394,10 @@ body > nav{
     width: 100%;
     justify-content: center;
     padding: 16px 24px;
+  }
+
+  .hero-goat{
+    width: min(100%, 280px);
   }
 }
 
@@ -1533,29 +1492,40 @@ body.menu-open .mobile-menu {
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">🌿 Founding Member Invitation</div>
+    <div class="hero-copy">
+      <div class="hero-badge">🌿 Founding Member Invitation</div>
 
-    <h1>
-      <span class="hero-kicker">The 30-Day SteadyEDGE Experience</span>
-      <span class="hero-main">
-        Train the Moment <br>
-        Communication Gets <span class="hl">Hard</span>
-      </span>
-    </h1>
+      <h1>
+        <span class="hero-kicker">The 30-Day SteadyEDGE Experience</span>
+        <span class="hero-main">
+          Train the Moment
+          Communication
+          Gets <span class="hl">Hard</span>
+        </span>
+      </h1>
 
-    <p class="hero-desc">
-      SteadyEDGE helps you practice one small expansion move at a time so you can speak more clearly, stay grounded, and recover faster after hard conversations.
-    </p>
+      <p class="hero-desc">
+        SteadyEDGE helps you practice one small expansion move at a time so you can speak more clearly, stay grounded, and recover faster after hard conversations.
+      </p>
 
-    <div class="hero-actions">
-      <a href="https://app.steadyedge.app/trial" class="btn-primary">Join the 30-Day Experience</a>
+      <div class="hero-actions">
+        <a href="https://app.steadyedge.app/trial" class="btn-primary">Join the 30-Day Experience</a>
+      </div>
+
+      <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
+
+      <a href="#problem" class="scroll-arrow" aria-label="Scroll to the next section">
+        <span></span>
+      </a>
     </div>
 
-    <p class="hero-sub">Build steadiness in real conversations, one rep at a time.</p>
-
-    <a href="#problem" class="scroll-arrow" aria-label="Scroll to the next section">
-      <span></span>
-    </a>
+    <div class="hero-visual">
+      <img
+        src="/images/hero-goat-right.png"
+        alt="Edge the goat"
+        class="hero-goat"
+      />
+    </div>
   </div>
 </section>
 
