@@ -741,18 +741,27 @@ section{padding:100px 24px;}
   font-size:14px;font-weight:900;flex-shrink:0;
 }
 .who-visual{
-  background:var(--white);border-radius:28px;
-  box-shadow:0 8px 40px var(--shadow-md);overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100%;
+  background:transparent;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
+}
+
+.app-mockup-img{
+  display:block;
+  width:100%;
+  max-width:350px;
+  height:auto;
+  object-fit:contain;
 }
 /* mini app dashboard mockup */
 .app-mockup-header{
   background:var(--sage);padding:20px 20px 16px;
-}
-.app-mockup-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 35px;
 }
 .app-mockup-title{font-size:11px;font-weight:800;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;}
 .app-mockup-h{font-size:19px;font-weight:900;color:white;line-height:1.1;margin-top:2px;}
@@ -1549,7 +1558,7 @@ body.menu-open .mobile-menu {
       <!-- App Dashboard Mockup -->
       <div class="who-visual">
   <img 
-    src="/images/dashboard.png" 
+    src="/images/phone.png" 
     alt="SteadyEDGE app preview"
     class="app-mockup-img"
   />
