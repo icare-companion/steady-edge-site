@@ -141,7 +141,7 @@ body > nav{
   font-weight: 900;
   line-height: 1.15;
   color: var(--tan);
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .hero-main {
@@ -194,6 +194,7 @@ body > nav{
   filter:drop-shadow(0 16px 32px rgba(74,124,89,0.2));
   position:relative;
 }
+
 @keyframes floatGoat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
@@ -236,6 +237,21 @@ body > nav{
 .hero-actions {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.hero-clarifier,
+.hero-edge-definition {
+  max-width: 720px;
+  margin: 0px auto 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--mid);
+}
+
+.hero-edge-definition {
+  font-weight: 700;
+  color: var(--dark);
 }
 
 .btn-primary{
@@ -1466,27 +1482,43 @@ body.menu-open .mobile-menu {
     <div class="hill hill-4"></div>
   </div>
 
- <div class="hero-badge">🌿 Founding Member Invitation</div>
+  <div class="hero-kicker">The 30-Day SteadyEDGE Experience</div>
+
+  <p class="hero-clarifier">
+    SteadyEDGE is a communication app with live coaching during your first 30 days.
+  </p>
+
   <img 
-  src="/images/EdgeWebsiteIntroStanding.png" 
-  class="hero-goat"
-/>
+    src="/images/EdgeWebsiteIntroStanding.png" 
+    class="hero-goat"
+    alt="Edge the SteadyEDGE goat"
+  />
 
   <h1>
-  <span class="hero-kicker">The 30-Day SteadyEDGE Experience</span>
-  <span class="hero-main">Build 
-    <span class="hl">Steadiness</span><br>
-    <span class="hero-main-smaller">when communication gets hard.</span>
-  </span>
+    <span class="hero-main">
+      Build 
+      <span class="hl">Steadiness</span><br>
+      <span class="hero-main-smaller">when communication gets hard.</span>
+    </span>
   </h1>
-  <p class="hero-desc">SteadyEDGE helps you understand why those moments hit so hard, choose a steadier response, and practice it in real life.</p>
+
+  <p class="hero-desc">
+  SteadyEDGE helps you find your Edge — the moment your default reaction takes over under pressure — then gives you steadier responses to choose from and practice in real life.
+</p>
+
   <div class="hero-actions">
-    <a href="https://app.steadyedge.app/trial" class="btn-primary">Join the 30-Day Experience</a>
+    <a href="https://app.steadyedge.app/trial" class="btn-primary">
+      Join the 30-Day Experience
+    </a>
   </div>
-  <p class="hero-sub">Find your Edge. Practice a steadier response. Log what happened.</p>
-  <a href="#problem" class="scroll-arrow" aria-label="Scroll to video walkthrough">
-  <span></span>
-</a>
+
+  <p class="hero-sub">
+    Find your Edge. Practice a steadier response. Track your progress.
+  </p>
+
+  <a href="#problem" class="scroll-arrow" aria-label="Scroll to next section">
+    <span></span>
+  </a>
 </section>
 
 <!-- ── PROBLEM ── -->
