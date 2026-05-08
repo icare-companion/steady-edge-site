@@ -511,6 +511,24 @@ section{padding:100px 24px;}
   content:'·';position:absolute;left:4px;color:var(--tan);font-weight:900;
 }
 
+/* One-column version for What is your Edge section */
+.edge-def-inner {
+  display: block;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 60px 60px;
+}
+
+.edge-def-text {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.edge-terms {
+  max-width: 720px;
+  margin: 34px auto 0;
+}
+
 /* ══════════════════════════════════
    MOMENTS — PERSONAL & PROFESSIONAL
 ══════════════════════════════════ */
@@ -1582,30 +1600,36 @@ body.menu-open .mobile-menu {
 </section>
 
 <!-- ── WHAT IS YOUR EDGE ── -->
-<section class="edge-def" style="padding:100px 24px;">
+<section class="edge-def" style="padding:70px 24px;">
   <div class="container">
-    <div class="edge-def-inner reveal">
-      <div class="edge-def-text">
+    <div class="edge-def-inner reveal" style="display:block; max-width:980px; margin:0 auto;">
+      <div class="edge-def-text" style="max-width:980px; margin:0 auto;">
         <div class="sec-label">The Core Concept</div>
+
         <h2 class="sec-title">What is your Edge?</h2>
-        <p class="sec-body">Your Edge is the moment communication gets hard and your default reaction starts to take over.<br><br>SteadyEDGE helps you find that moment, understand what happens, and practice a steadier response.</p>
-      </div>
-      <div class="edge-terms">
-        <div class="edge-term">
-          <div class="edge-term-name">Your Communication Edge</div>
-          <div class="edge-term-def">The exact point where your body reacts before your words do — the pause, tension, heat, urgency, or hesitation that tells you you’re at your edge.</div>
+
+        <p class="sec-body">
+          Your Edge is the moment your default reaction starts to take over under pressure.
+          <br><br>
+          It might show up as going quiet, over-explaining, defending, avoiding, softening what you mean, or pushing harder than you intended.
+        </p>
+
+        <div class="edge-terms" style="margin-top:34px;">
+          <div class="edge-term">
+            <div class="edge-term-name">Your Edge may feel like:</div>
+            <ul class="edge-list">
+              <li>A pause before you speak</li>
+              <li>Tightness in your body</li>
+              <li>Urgency to explain or defend</li>
+              <li>Holding back what you want to say</li>
+              <li>Worry about being misunderstood</li>
+            </ul>
+          </div>
         </div>
-        <div class="edge-term">
-          <div class="edge-term-name">Activation</div>
-          <div class="edge-term-def">The nervous-system charge — emotion plus body sensation — that shows up when communication feels risky:</div>
-          <ul class="edge-list">
-            <li>Being misunderstood</li>
-            <li>Being judged</li>
-            <li>Being rejected</li>
-            <li>Sounding difficult</li>
-            <li>Getting it wrong</li>
-          </ul>
-        </div>
+
+        <p class="sec-body" style="margin-top:34px;">
+          SteadyEDGE helps you find that moment and choose a steadier response to practice.
+        </p>
       </div>
     </div>
   </div>
