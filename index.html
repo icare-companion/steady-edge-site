@@ -333,6 +333,8 @@ body > nav{
 .video-placeholder {
   width: min(900px, 100%);
   margin: 36px auto 0;
+  margin-top: 12px;     /* reduces space above the video */
+  margin-bottom: 36px;  /* adds space below the video */
 }
 
 .video-box {
@@ -561,7 +563,32 @@ section{padding:100px 24px;}
 /* ══════════════════════════════════
    PROCESS
 ══════════════════════════════════ */
-.process{background:var(--off);}
+.process{
+  background:
+    radial-gradient(circle at 18% 14%, rgba(212, 132, 90, 0.08) 0, rgba(212, 132, 90, 0.08) 170px, transparent 171px),
+    radial-gradient(circle at 88% 78%, rgba(74, 124, 89, 0.06) 0, rgba(74, 124, 89, 0.06) 145px, transparent 146px),
+    #EAD7BE;
+  color:var(--dark);
+  position:relative;
+  overflow:hidden;
+}
+
+.process .container{
+  position:relative;
+  z-index:1;
+}
+
+.process .sec-label{
+  color:var(--terra);
+}
+
+.process .sec-title{
+  color:var(--dark);
+}
+
+.process .sec-body{
+  color:var(--mid);
+}
 .process-grid{
   display:grid;grid-template-columns:repeat(5,1fr);gap:0;
   margin-top:60px;position:relative;
@@ -1244,6 +1271,12 @@ body.menu-open .mobile-menu {
   </span>
   </h1>
   <p class="hero-desc">SteadyEDGE is a communication app that helps you understand why those moments hit so hard, choose a steadier response, and practice it in real life.</p>
+  <div class="video-placeholder">
+  <div class="video-box">
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1187944657?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SteadyEDGE App"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
   <div class="hero-actions">
     <a href="https://app.steadyedge.app/trial" class="btn-primary">Start Your 7-Day Free Trial</a>
   </div>
@@ -1347,23 +1380,6 @@ body.menu-open .mobile-menu {
       </div>
     </div>
   </div>
-</section>
-
-<!-- ── VIDEO WALKTHROUGH ── -->
-<section id="video-walkthrough" class="final-cta how-it-works-video">
-  <h2>See how it works</h2>
-
-  <p>
-    Watch how SteadyEDGE helps you find your Edge, choose a steadier response, and know what to do next.
-  </p>
-
-  <div class="video-placeholder">
-  <div class="video-box">
-    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1187944657?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SteadyEDGE App"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-  </div>
-</div>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
 </section>
 
 <!-- ── MOMENTS ── -->
