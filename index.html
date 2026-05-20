@@ -134,17 +134,17 @@ body > nav{
 }
 
 ::-webkit-scrollbar-track {
-  background: #f6f1e8;
+  background: #EAF8FF;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4a7c59;
+  background: #0EA5E9;
   border-radius: 999px;
-  border: 3px solid #f6f1e8;
+  border: 3px solid #EAF8FF;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f6b4c;
+  background: #0284C7;
 }
 
 /* ══════════════════════════════════
@@ -810,7 +810,7 @@ section{padding:100px 24px;}
 ══════════════════════════════════ */
 .who{
   background:
-    linear-gradient(180deg, #F8FCFF 0%, #E8F5EE 100%);
+    linear-gradient(180deg, #F8FCFF 0%, #EEF9FF 100%);
 }
 .who-inner{
   display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
@@ -922,8 +922,19 @@ section{padding:100px 24px;}
   font-size:16px;font-weight:800;text-decoration:none;text-align:center;
   transition:all 0.2s;
 }
-.price-card.feat .price-btn{background:white;color:var(--sage);}
-.price-card.feat .price-btn:hover{background:var(--cream);}
+.price-card.feat .price-btn{
+  background:white;
+  color:var(--sky-deep);
+  box-shadow:0 8px 24px rgba(255,255,255,0.16);
+}
+
+.price-card.feat .price-btn:hover{
+  background:#EAF8FF;
+  color:#0369A1;
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(255,255,255,0.24);
+}
+
 .price-card:not(.feat) .price-btn{background:rgba(255,255,255,0.1);color:white;border:1.5px solid rgba(255,255,255,0.18);}
 .price-card:not(.feat) .price-btn:hover{background:rgba(255,255,255,0.18);}
 .price-founder{margin-top:28px;font-size:18px;color:rgba(247, 242, 242, 0.681);font-style:italic;}
