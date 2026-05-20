@@ -264,6 +264,27 @@ body > nav{
   margin-bottom: 0;
 }
 
+.store-badges{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.store-badges a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.store-badges img{
+  height:44px;
+  width:auto;
+  display:block;
+}
+
 .btn-primary{
   background:linear-gradient(135deg, var(--sky), var(--sky-deep));
   color:white;
@@ -1325,13 +1346,13 @@ body.menu-open .mobile-menu {
   </button>
 
   <div class="nav-right">
-    <a href="https://app.steadyedge.app/trial" class="nav-btn">Start 7-Day Free Trial</a>
+    <a href="https://app.steadyedge.app/trial" class="nav-btn">Start Free Trial on Web →</a>
   </div>
 </nav>
 
 <div id="mobile-menu" class="mobile-menu">
   <a href="https://app.steadyedge.app/login" onclick="closeMobileMenu()">Login</a>
-  <a href="https://app.steadyedge.app/trial" class="mobile-menu-btn" onclick="closeMobileMenu()">Start 7-Day Free Trial</a>
+  <a href="https://app.steadyedge.app/trial" class="mobile-menu-btn" onclick="closeMobileMenu()">Start Free Trial on Web →</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -1358,8 +1379,17 @@ body.menu-open .mobile-menu {
 </div>
 <script src="https://player.vimeo.com/api/player.js"></script>
   <div class="hero-actions">
-    <a href="https://app.steadyedge.app/trial" class="btn-primary">Start Your 7-Day Free Trial</a>
+    <a href="https://app.steadyedge.app/trial" class="btn-primary">Start Your 7-Day Free Trial on Web →</a>
   </div>
+  <div class="store-badges" aria-label="Download SteadyEDGE">
+  <a href="YOUR_APP_STORE_LINK" aria-label="Download on the App Store">
+    <img src="/images/AppleStore.png" alt="Download on the App Store">
+  </a>
+
+  <a href="YOUR_GOOGLE_PLAY_LINK" aria-label="Get it on Google Play">
+    <img src="/images/GooglePlay.png" alt="Get it on Google Play">
+  </a>
+</div>
   <p class="hero-sub">Find your Edge. Practice a steadier response. Track your progress.</p>
   <a href="#problem" class="scroll-arrow" aria-label="Scroll to video walkthrough">
   <span></span>
@@ -1669,14 +1699,14 @@ body.menu-open .mobile-menu {
         <div class="price-lbl" style="margin-top: 50px;">Monthly</div>
         <div class="price-amt"><span>$</span>12<span>.75</span></div>
         <div class="price-per">per month</div>
-        <a href="https://app.steadyedge.app/trial" class="price-btn">Start 7-Day Free Trial</a>
+        <a href="https://app.steadyedge.app/trial" class="price-btn">Start Free Trial on Web →</a>
       </div>
       <div class="price-card feat reveal reveal-delay-2">
         <div class="price-badge">SAVE 35%</div>
         <div class="price-lbl">Annual</div>
         <div class="price-amt"><span>$</span>8<span>.25</span></div>
         <div class="price-per">per month · billed $99/yr</div>
-        <a href="https://app.steadyedge.app/trial" class="price-btn">Start 7-Day Free Trial</a>
+        <a href="https://app.steadyedge.app/trial" class="price-btn">Start Free Trial on Web →</a>
       </div>
     </div>
     <p class="price-founder reveal">Founder pricing for life — available for a limited time only.</p>
@@ -1751,7 +1781,7 @@ body.menu-open .mobile-menu {
 />
   <h2>Stop replaying the conversation. Start practicing a steadier response.</h2>
   <p>Edge is ready when you are. Real conversations. Steady responses. Lasting change.</p>
-  <a href="https://app.steadyedge.app/trial" class="btn-white">Start 7-Day Free Trial</a>
+  <a href="https://app.steadyedge.app/trial" class="btn-white">Start Free Trial on Web →</a>
   <p class="cta-fine" style="margin-top:20px;">7-day free trial · No commitment · Cancel anytime</p>
 </section>
 
