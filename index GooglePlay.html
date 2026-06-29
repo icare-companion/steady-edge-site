@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SteadyEDGE — When expressing yourself gets hard, get steady.</title>
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="apple-touch-icon" href="/images/favicon.png">
+<!-- Social sharing preview -->
+<meta property="og:title" content="SteadyEDGE — When expressing yourself gets hard, get steady.">
+<meta property="og:description" content="A guided training app for the moments communication gets hard and your nervous system takes over.">
+<meta property="og:image" content="https://steadyedge.app/images/SocialShare.png">
+<meta property="og:url" content="https://steadyedge.app">
+<meta property="og:type" content="website">
+
+<!-- Twitter / X sharing preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SteadyEDGE — When expressing yourself gets hard, get steady.">
+<meta name="twitter:description" content="A guided training app for the moments communication gets hard and your nervous system takes over.">
+<meta name="twitter:image" content="https://steadyedge.app/images/SocialShare.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* SteadyEDGE mountain dashboard palette */
+  --sky: #0EA5E9;
+  --sky-deep: #0284C7;
+  --sky-pale: #EAF8FF;
+
+  --forest: #256D4B;
+  --forest-light: #3F8F63;
+  --forest-pale: #E8F5EE;
+
+  --snow: #F8FCFF;
+  --white: #FFFFFF;
+
+  --stone: #334155;
+  --stone-soft: #64748B;
+  --slate: #0F172A;
+
+  --trail: #D9A441;
+  --trail-light: #FFF3D6;
+
+  --cliff: #B8875A;
+  --cliff-light: #F3E4D4;
+
+  --border: #D7E6EF;
+
+  --dark: var(--slate);
+  --mid: var(--stone-soft);
+  --cream: var(--snow);
+  --off: #EFF7FC;
+
+  --sage: var(--sky);
+  --sage-light: var(--sky-deep);
+  --sage-pale: var(--sky-pale);
+  --sage-mid: #BFE8FA;
+
+  --tan: var(--trail);
+  --tan-light: var(--trail-light);
+
+  --terra: var(--forest);
+  --terra-light: var(--forest-pale);
+
+  --shadow: rgba(15, 23, 42, 0.08);
+  --shadow-md: rgba(15, 23, 42, 0.16);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--snow);
+  color:var(--dark);
+  overflow-x:hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--off);}
+::-webkit-scrollbar-thumb{background:var(--sage);border-radius:3px;}
+
+/* ══════════════════════════════════
+   NAV
+══════════════════════════════════ */
+body > nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:9999;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:14px 48px;
+  background:rgba(248,252,255,0.94);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+
+  border-bottom:1px solid rgba(14,165,233,0.16);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:5px;
+  text-decoration:none;
+}
+
+.nav-logo-img{
+  width: 65px;
+  object-fit:contain;
+  display:block;
+}
+
+.nav-logo-text{font-size:24px;font-weight:800;color:var(--dark);}
+.nav-logo-text span{color:var(--sage);}
+.nav-logo-sub{
+  font-size:9px;
+  font-weight:700;
+  color:#757474;
+  letter-spacing:0.06em;
+  text-transform:none;
+  margin-top:-2px;
+}
+.nav-right{display:flex;align-items:center;gap:28px;}
+.nav-link{font-size:13px;font-weight:700;color:var(--mid);text-decoration:none;letter-spacing:0.03em;transition:color 0.2s;}
+.nav-link:hover{color:var(--sage);}
+.nav-btn{
+  background:var(--sage);color:white;
+  padding:10px 22px;border-radius:50px;
+  font-size:13px;font-weight:800;text-decoration:none;
+  box-shadow:0 4px 16px rgba(74,124,89,0.25);
+  transition:all 0.2s;
+}
+.nav-btn:hover{background:var(--sage-light);transform:translateY(-1px);}
+
+/* Wider browser scrollbar */
+::-webkit-scrollbar {
+  width: 18px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EAF8FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0EA5E9;
+  border-radius: 999px;
+  border: 3px solid #EAF8FF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284C7;
+}
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+.hero{
+  min-height:auto;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;
+  padding:120px 24px 80px;
+  background:linear-gradient(180deg, #F8FCFF 0%, #EEF9FF 52%, #F8FCFF 100%);
+  position:relative;overflow:hidden;
+}
+
+/* Nature-inspired background: layered soft hills */
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  overflow:hidden;
+}
+
+.hero-main-smaller {
+  display: inline-block;
+  font-size: 80%;
+}
+
+.hill{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:0.12;
+}
+
+.hill-1{width:700px;height:400px;background:#BDEBFF;top:-100px;right:-150px;}
+.hill-2{width:600px;height:350px;background:#D8F3E4;bottom:-80px;left:-100px;}
+.hill-3{width:400px;height:300px;background:#F6DFA9;bottom:0;right:20%;}
+.hill-4{width:300px;height:200px;background:#A9DFF8;top:30%;left:-60px;}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--sage-pale);border:1.5px solid #B8D4BF;
+  color:var(--sage);padding:6px 18px;border-radius:50px;
+  font-size:12px;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;
+  margin-bottom:28px;position:relative;
+  animation:fadeUp 0.6s ease both;
+}
+
+.hero-mini-badge{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px;margin-bottom:10px;
+}
+
+.hero-mini-word{
+  background:rgba(0, 0, 0, 0.4);border:1px solid rgba(255,255,255,0.15);
+  color:white;padding:6px 14px;border-radius:50px;
+  font-size:12px;font-weight:700;
+}
+
+.hero-goat{
+  width: 400px;height:396px;
+  animation:floatGoat 4s ease-in-out infinite, fadeUp 0.7s ease 0.1s both;
+  filter:drop-shadow(0 16px 32px rgba(74,124,89,0.2));
+  position:relative;
+}
+@keyframes floatGoat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+.hero h1{
+  font-size:clamp(44px,7vw,62px);
+  font-weight:900;line-height:1.04;
+  letter-spacing:-0.025em;color:var(--dark);
+  margin-bottom:20px;position:relative;
+  animation:fadeUp 0.7s ease 0.15s both;
+}
+.hero h1 .hl{
+  color:var(--sage);position:relative;display:inline-block;
+}
+.hero h1 .hl::after{
+  content:'';position:absolute;bottom:2px;left:0;right:0;
+  height:5px;background:var(--terra);border-radius:3px;opacity:0.4;
+}
+.hero-desc{
+  font-family:'Lora',serif;
+  font-size:clamp(17px,2.2vw,21px);
+  color:var(--mid);max-width:900px;line-height:1.65;
+  margin:0 auto 12px;position:relative; margin-bottom: 22px;
+  animation:fadeUp 0.7s ease 0.2s both;
+}
+.hero-sub{
+  font-size:14px;
+  color:#256D4B;
+  font-weight:800;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  margin-bottom:0px;
+  margin-top:20px;
+  position:relative;
+  animation:fadeUp 0.7s ease 0.25s both;
+}s
+.hero-actions{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  justify-content:center;position:relative;
+  animation:fadeUp 0.7s ease 0.3s both;
+}
+
+.hero-sub {
+  margin-bottom: 12px;
+}
+
+.hero-actions {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.store-badges{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:18px;
+}
+
+.store-badges a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.store-badges img{
+  height:44px;
+  width:auto;
+  display:block;
+}
+
+.pricing-platform-note{
+  margin-top:22px;
+  font-size:14px;
+  color:rgba(255,255,255,0.62);
+  font-weight:700;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg, var(--sky), var(--sky-deep));
+  color:white;
+  padding:17px 40px;border-radius:50px;
+  font-size:17px;font-weight:800;text-decoration:none;
+  box-shadow:0 10px 34px rgba(14,165,233,0.32);
+  transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg, var(--sky-deep), #0369A1);
+  transform:translateY(-2px);
+  box-shadow:0 14px 44px rgba(14,165,233,0.38);
+}
+
+.btn-ghost{
+  color:var(--mid);font-size:15px;font-weight:700;
+  text-decoration:none;padding:17px 20px;transition:color 0.2s;
+}
+.btn-ghost:hover{color:var(--sage);}
+.hero-fine{
+  margin-top:18px;font-size:13px;color:var(--tan);
+  font-weight:600;position:relative;
+  animation:fadeUp 0.7s ease 0.4s both;
+}
+
+.scroll-arrow {
+  position: relative;
+  z-index: 2;
+  margin-top: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  animation: arrowBounce 1.6s ease-in-out infinite;
+}
+
+.scroll-arrow span {
+  width: 18px;
+  height: 18px;
+  border-right: 4px solid #4a7c59;
+  border-bottom: 4px solid #4a7c59;
+  transform: rotate(45deg);
+}
+
+.scroll-arrow::before,
+.scroll-arrow::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 124, 89, 0.22);
+  animation: arrowPulse 1.6s ease-out infinite;
+}
+
+.scroll-arrow::before {
+  width: 42px;
+  height: 42px;
+}
+
+.scroll-arrow::after {
+  width: 58px;
+  height: 58px;
+  animation-delay: 0.35s;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes arrowPulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-arrow,
+  .scroll-arrow::before,
+  .scroll-arrow::after {
+    animation: none;
+  }
+}
+
+/* ══════════════════════════════════
+   VIDEO
+══════════════════════════════════ */
+
+.how-it-works-video {
+  padding-bottom: 80px;
+}
+
+.how-it-works-video h2 {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.how-it-works-video p {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-placeholder {
+  width: min(900px, 100%);
+  margin: 36px auto 0;
+  margin-top: 5px;     /* reduces space above the video */
+  margin-bottom: 36px;  /* adds space below the video */
+}
+
+.video-box {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.video-box iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ══════════════════════════════════
+   SECTION SHELLS
+══════════════════════════════════ */
+section{padding:100px 24px;}
+.container{max-width:1040px;margin:0 auto;}
+.sec-label{
+  font-size:11px;font-weight:800;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:10px;
+}
+.sec-title{
+  font-size:clamp(30px,4.5vw,52px);font-weight:900;
+  line-height:1.1;letter-spacing:-0.02em;color:var(--dark);
+  margin-bottom:18px;
+}
+.sec-body{
+  font-family:'Lora',serif;font-size:18px;line-height:1.75;
+  color:var(--mid);max-width:620px;
+}
+
+/* ══════════════════════════════════
+   APP-STYLE CARD
+══════════════════════════════════ */
+.card{
+  background:var(--white);border-radius:24px;
+  box-shadow:0 4px 24px var(--shadow);
+  overflow:hidden;
+  transition:transform 0.25s,box-shadow 0.25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow-md);}
+
+/* ══════════════════════════════════
+   PROBLEM SECTION
+══════════════════════════════════ */
+.problem{
+  background:
+    linear-gradient(180deg, #FFFFFF 0%, #EAF8FF 100%);
+}
+.problem-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  align-items:start;margin-top:52px;
+}
+.problem-quote{
+  background:var(--white);border-radius:24px;
+  padding:40px;box-shadow:0 4px 24px var(--shadow);
+  border-left:5px solid var(--terra);
+}
+.problem-quote p{
+  font-family:'Lora',serif;font-size:19px;line-height:1.7;
+  color:var(--dark);
+}
+.problem-quote p em{color:var(--terra);font-style:italic;}
+.problem-quote p strong{color:var(--dark);font-style:normal;display:block;margin-top:16px;}
+.problem-attr{
+  margin-top:20px;font-size:12px;font-weight:800;
+  text-transform:uppercase;letter-spacing:0.08em;color:var(--tan);
+}
+.problem-points{display:flex;flex-direction:column;gap:16px;}
+.pp{
+  background:var(--white);border-radius:18px;
+  padding:22px;box-shadow:0 2px 14px var(--shadow);
+  display:flex;gap:16px;align-items:flex-start;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.pp:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--shadow);}
+.pp-icon {
+  flex: 0 0 auto;
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+}
+
+.pp-icon img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  display: block;
+}
+.pp-title{font-size:15px;font-weight:800;color:var(--dark);margin-bottom:4px;}
+.pp-body{font-size:13px;color:var(--mid);line-height:1.55;}
+
+/* ══════════════════════════════════
+   WHAT IS YOUR EDGE
+══════════════════════════════════ */
+.edge-def{
+  background:#0B8FCF;
+  color:white;
+}
+.edge-def-inner{
+  background:linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  border-radius:32px;padding:80px 60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  align-items:center;
+  position:relative;overflow:hidden;
+}
+.edge-def-inner::before{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:360px;height:360px;
+  background:rgba(255,255,255,0.05);border-radius:50%;
+}
+.edge-def-inner::after{
+  content:'';position:absolute;bottom:-60px;left:-40px;
+  width:240px;height:240px;
+  background:rgba(255,255,255,0.04);border-radius:50%;
+}
+.edge-def-text .sec-label{color:rgba(255,255,255,0.55);}
+.edge-def-text .sec-title{color:white;}
+.edge-def-text .sec-body{color:rgba(255,255,255,0.78);max-width:100%;}
+.edge-terms{display:flex;flex-direction:column;gap:20px;position:relative;}
+.edge-term{
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
+  border-radius:20px;padding:24px;backdrop-filter:blur(8px);
+}
+.edge-term-name{
+  font-size:13px;
+  font-weight:900;
+  color:#EAF8FF;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+.edge-term-def{
+  font-family:'Lora',serif;font-size:18px;color:rgba(255,255,255,0.82);
+  line-height:1.6;
+}
+.edge-list{margin-top:10px;display:flex;flex-direction:column;gap:4px;}
+.edge-list li{
+  font-size:15px;
+  color:rgba(255,255,255,0.9);
+  list-style:none;
+  padding-left:18px;
+  position:relative;
+}
+.edge-list li::before{
+  content:'•';
+  position:absolute;
+  left:4px;
+  color:#BDEBFF;
+  font-weight:900;
+}
+
+/* ══════════════════════════════════
+   MOMENTS — PERSONAL & PROFESSIONAL
+══════════════════════════════════ */
+.moments{background:var(--cream);}
+.moments-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:28px;
+  margin-top:52px;
+}
+.moment-card{
+  background:var(--white);border-radius:28px;
+  overflow:hidden;box-shadow:0 4px 28px var(--shadow);
+  transition:transform 0.25s,box-shadow 0.25s;
+}
+.moment-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px var(--shadow-md);}
+/* Illustrated scene header */
+
+.scene-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.moment-scene{
+  height:180px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.moment-scene-personal{
+  background:linear-gradient(135deg, #EAF8FF 0%, #7DD3FC 42%, #0284C7 100%);
+}
+
+.moment-scene-professional{
+  background:linear-gradient(135deg, #EFF6FF 0%, #93C5FD 42%, #1D4ED8 100%);
+}
+.scene-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.08) 20%, rgba(0,0,0,0.45) 100%);
+}
+
+.scene-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.scene-goat{
+  width:110px;height:110px;position:relative;z-index:1;
+  animation:floatGoat 4s ease-in-out infinite;
+}
+.scene-title{
+  position:absolute;bottom:14px;left:20px;z-index:2;
+  font-size:20px;font-weight:900;color:white;
+  text-shadow:0 2px 8px rgba(0,0,0,0.3);
+}
+.moment-body{padding:28px 28px 32px;}
+.moment-body p{
+  font-family:'Lora',serif;font-size:15px;line-height:1.7;
+  color:var(--mid);margin-bottom:16px;
+}
+.moment-body p em{color:var(--dark);font-style:italic;font-weight:600;}
+.moment-list{
+  list-style:none;display:flex;flex-direction:column;gap:8px;
+}
+.moment-list li{
+  font-size:13px;color:var(--mid);padding-left:20px;
+  position:relative;line-height:1.5;
+}
+.moment-list li::before{
+  content:'→';position:absolute;left:0;color:var(--sage);font-weight:800;
+}
+.moment-closer{
+  margin-top:16px;font-size:14px;font-weight:800;
+  color:var(--terra);
+}
+.moment-scene-solid {
+  max-height: 80px;
+}
+
+/* ══════════════════════════════════
+   PROCESS
+══════════════════════════════════ */
+.process{
+  background:
+    radial-gradient(circle at 18% 14%, rgba(14,165,233,0.055) 0, rgba(14,165,233,0.055) 150px, transparent 151px),
+    radial-gradient(circle at 88% 78%, rgba(37,109,75,0.045) 0, rgba(37,109,75,0.045) 130px, transparent 131px),
+    linear-gradient(180deg, #F8FCFF 0%, #EAF8FF 100%);
+  color:var(--dark);
+  position:relative;
+  overflow:hidden;
+}
+
+.process .container{
+  position:relative;
+  z-index:1;
+}
+
+.process .sec-label{
+  color:var(--terra);
+}
+
+.process .sec-title{
+  color:var(--dark);
+}
+
+.process .sec-body{
+  color:var(--mid);
+}
+.process-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  margin-top:60px;position:relative;
+  align-items:stretch;
+}
+/* horizontal connector */
+.process-grid::before{
+  content:'';
+  position:absolute;top:52px;left:10%;right:10%;
+  height:2px;
+  background:linear-gradient(to right,var(--sage-pale),var(--sage),var(--sage-pale));
+  z-index:0;
+}
+.process-step{
+  background:var(--white);border-radius:24px;
+  padding:28px 20px;margin:0 8px;
+  box-shadow:0 4px 20px var(--shadow);
+  text-align:center;z-index:1;position:relative;
+  transition:transform 0.25s,box-shadow 0.25s;
+  flex-direction:column;
+  justify-content:flex-start; /* 👈 THIS is the key */
+}
+.process-step:hover{transform:translateY(-6px);box-shadow:0 14px 40px var(--shadow-md);}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--sage);color:white;
+  font-size:16px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+  box-shadow:0 4px 16px rgba(74,124,89,0.3);
+}
+
+.process-image {
+  height: 100px;
+  margin: -28px -20px 18px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  background: #f3eadf;
+}
+
+.process-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.process-step.has-image .step-num {
+  margin-top: 10px;
+}
+
+.step-icon{font-size:24px;margin-bottom:10px;}
+.step-title{font-size:15px;font-weight:900;color:var(--dark);margin-bottom:8px;}
+.step-body{font-size:12px;color:var(--mid);line-height:1.55;flex:1;}
+.step-time{
+  margin-top:12px;font-size:10px;font-weight:700;
+  color:var(--tan);text-transform:uppercase;letter-spacing:0.06em;
+}
+/* Result chain */
+.result-chain{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;margin-top:40px;flex-wrap:wrap;
+}
+.result-item{
+  background:var(--white);border-radius:16px;
+  padding:14px 20px;box-shadow:0 2px 12px var(--shadow);
+  font-size:13px;font-weight:800;color:var(--sage);
+  text-align:center;
+}
+.result-arrow{font-size:18px;color:var(--sage);padding:0 8px;}
+
+/* ══════════════════════════════════
+   WHAT CHANGES — SPLITSCREEN
+══════════════════════════════════ */
+.what-changes{background:var(--cream);}
+.changes-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:32px;
+  margin-top:52px;
+}
+.change-before,.change-after{border-radius:28px;padding:40px;overflow:hidden;position:relative;}
+.change-before{
+  background:var(--off);border:2px solid var(--border);
+}
+.change-after{
+  background:var(--sage);
+  box-shadow:0 8px 40px rgba(74,124,89,0.3);
+}
+.change-tag{
+  display:inline-block;padding:4px 14px;border-radius:50px;
+  font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
+  margin-bottom:20px;
+}
+.change-before .change-tag{background:var(--border);color:var(--mid);}
+.change-after .change-tag{background:rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);}
+.change-before h3{font-size:22px;font-weight:900;color:var(--mid);margin-bottom:16px;}
+.change-after h3{font-size:22px;font-weight:900;color:white;margin-bottom:16px;}
+.change-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.change-list li{font-size:14px;line-height:1.55;padding-left:24px;position:relative;}
+.change-before .change-list li{color:var(--mid);}
+.change-after .change-list li{color:rgba(255,255,255,0.85);}
+.change-before .change-list li::before{content:'×';position:absolute;left:0;color:var(--terra);font-weight:900;}
+.change-after .change-list li::before{content:'✓';position:absolute;left:0;color:rgba(255,255,255,0.7);font-weight:900;}
+.change-closer{
+  margin-top:24px;font-family:'Lora',serif;
+  font-size:16px;font-style:italic;
+}
+.change-before .change-closer{color:var(--mid);}
+.change-after .change-closer{color:rgba(255,255,255,0.75);}
+
+.change-benefit {
+  max-width: 760px;
+  margin: 42px auto 0;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--mid);
+}
+
+/* ══════════════════════════════════
+   WHY IT WORKS
+══════════════════════════════════ */
+.why{background:var(--dark);}
+.why .sec-title{color:white;}
+.why-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  align-items:center;margin-top:52px;
+}
+.why-text .sec-body{color:rgba(255,255,255,0.65);max-width:100%;}
+.why-points{display:flex;flex-direction:column;gap:20px;}
+.why-point{
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;padding:24px;
+}
+.why-point-label{
+  font-size:11px;font-weight:800;text-transform:uppercase;
+  letter-spacing:0.1em;color:var(--tan);margin-bottom:8px;
+}
+.why-point p{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.6;}
+.why-closing{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;padding:28px;margin-top:28px;text-align:center;
+}
+.why-closing p{
+  font-family:'Lora',serif;font-size:18px;color:white;line-height:1.6;
+}
+.why-closing strong{color:var(--tan);}
+/* Capacity visual */
+.capacity-visual{
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:28px;padding:36px;text-align:center;
+}
+.capacity-goat{width:155px;height:160px;margin:0 auto 20px;animation:floatGoat 4s ease-in-out infinite;}
+.capacity-title{font-size:22px;font-weight:900;color:white;margin-bottom:12px;}
+.capacity-desc{
+  font-family:'Lora',serif;font-size:15px;
+  color:rgba(255,255,255,0.65);line-height:1.65;
+}
+.capacity-words{
+  display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px;
+}
+.cap-word{
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  color:white;padding:6px 14px;border-radius:50px;
+  font-size:12px;font-weight:700;
+}
+
+/* ══════════════════════════════════
+   WHO IT'S FOR
+══════════════════════════════════ */
+.who{
+  background:
+    linear-gradient(180deg, #F8FCFF 0%, #EEF9FF 100%);
+}
+.who-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.who-list{display:flex;flex-direction:column;gap:12px;margin-top:32px;}
+.who-item{
+  background:var(--white);border-radius:16px;padding:18px 22px;
+  display:flex;align-items:center;gap:14px;
+  box-shadow:0 2px 12px var(--shadow);font-size:15px;font-weight:700;color:var(--dark);
+  transition:transform 0.2s;
+}
+.who-item:hover{transform:translateX(4px);}
+.who-check{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--sage);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;flex-shrink:0;
+}
+.who-visual{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  height:100%;
+  background:transparent;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
+}
+
+.app-mockup-img{
+  display:block;
+  width:100%;
+  max-width:350px;
+  height:auto;
+  object-fit:contain;
+}
+/* mini app dashboard mockup */
+.app-mockup-header{
+  background:var(--sage);padding:20px 20px 16px;
+}
+.app-mockup-title{font-size:11px;font-weight:800;color:rgba(255,255,255,0.7);text-transform:uppercase;letter-spacing:0.08em;}
+.app-mockup-h{font-size:19px;font-weight:900;color:white;line-height:1.1;margin-top:2px;}
+.app-mockup-sub{font-size:11px;color:rgba(255,255,255,0.65);margin-top:4px;}
+.app-mockup-body{padding:16px;}
+.app-card{
+  background:var(--off);border-radius:16px;
+  margin-bottom:10px;overflow:hidden;
+  box-shadow:0 2px 8px var(--shadow);
+}
+.app-card-img{
+  height:90px;display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.app-card-img-loga{background:linear-gradient(135deg,#8BB8A0,#4A7C59);}
+.app-card-img-add{background:linear-gradient(135deg,#C8B898,#8A7050);}
+.app-card-img-clear{background:linear-gradient(135deg,#A8C8B8,#5A8870);}
+.app-card-img-ex{background:linear-gradient(135deg,#C8A878,#907048);}
+.app-card-goat{width:60px;height:60px;}
+.app-card-label{
+  padding:10px 14px;font-size:13px;font-weight:800;color:var(--dark);text-align:center;
+}
+.app-mockup-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.app-mockup-nav{
+  padding:12px 16px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-around;
+}
+.app-nav-item{font-size:9px;font-weight:700;color:var(--mid);text-align:center;}
+.app-nav-item.active{color:var(--sage);}
+
+/* ══════════════════════════════════
+   PRICING
+══════════════════════════════════ */
+.pricing{background:var(--dark);text-align:center;}
+.pricing .sec-title{color:white;}
+.pricing .sec-body{color:rgba(255,255,255,0.55);margin:0 auto 52px;}
+.pricing-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  max-width:700px;margin:0 auto;
+}
+.price-card{
+  border-radius:28px;
+  padding:40px 32px;
+  border:1.5px solid rgba(255,255,255,0.22);
+  background:rgba(255,255,255,0.12);
+  transition:transform 0.25s,border-color 0.25s, background 0.25s;
+}
+.price-card:not(.feat){
+  background:rgba(255,255,255,0.16);
+}
+.price-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.22);}
+.price-card.feat{
+  background:var(--sage);border-color:transparent;
+  box-shadow:0 16px 60px rgba(74,124,89,0.4);
+}
+.price-badge{
+  display:inline-block;background:var(--sky-deep);
+  color:white;padding:4px 14px;border-radius:50px;
+  font-size:11px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+
+.price-lbl{font-size:13px;font-weight:700;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.price-amt{font-size:54px;font-weight:900;color:white;line-height:1;}
+.price-amt span{font-size:20px;font-weight:600;}
+.price-per{font-size:12px;color:rgba(255,255,255,0.45);margin:6px 0 28px;}
+.price-btn{
+  display:block;width:100%;padding:15px;border-radius:50px;
+  font-size:16px;font-weight:800;text-decoration:none;text-align:center;
+  transition:all 0.2s;
+}
+.price-card.feat .price-btn{
+  background:white;
+  color:var(--sky-deep);
+  box-shadow:0 8px 24px rgba(255,255,255,0.16);
+}
+
+.price-card.feat .price-btn:hover{
+  background:#EAF8FF;
+  color:#0369A1;
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(255,255,255,0.24);
+}
+
+.price-card:not(.feat) .price-btn{background:rgba(255,255,255,0.1);color:white;border:1.5px solid rgba(255,255,255,0.18);}
+.price-card:not(.feat) .price-btn:hover{background:rgba(255,255,255,0.18);}
+.price-founder{margin-top:28px;font-size:18px;color:rgba(247, 242, 242, 0.681);font-style:italic;}
+
+/* ══════════════════════════════════
+   FAQ
+══════════════════════════════════ */
+.faq{background:var(--cream);}
+.faq .sec-title{text-align:center;}
+.faq-wrap{max-width:740px;margin:52px auto 0;display:flex;flex-direction:column;gap:12px;}
+.faq-item{
+  background:var(--white);border-radius:20px;
+  box-shadow:0 2px 14px var(--shadow);overflow:hidden;
+  transition:box-shadow 0.2s;
+}
+.faq-item:hover{box-shadow:0 8px 32px var(--shadow-md);}
+.faq-q{
+  padding:22px 28px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-size:16px;font-weight:800;color:var(--dark);user-select:none;
+  transition:color 0.2s;
+}
+.faq-q:hover{color:var(--sage);}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--sage-pale);color:var(--sage);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;flex-shrink:0;
+  transition:transform 0.3s,background 0.2s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--sage);color:white;}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.4s ease,padding 0.3s ease;
+  padding:0 28px;
+  font-family:'Lora',serif;font-size:16px;line-height:1.75;color:var(--mid);
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 28px 24px;}
+
+/* ══════════════════════════════════
+   FINAL CTA
+══════════════════════════════════ */
+.final-cta{
+  background:linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  text-align:center;
+  padding:80px 24px;
+  position:relative;
+  overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);
+  width:960px;height:700px;background:rgba(255,255,255,0.06);border-radius:50%;
+}
+.final-cta::after{
+  content:'';position:absolute;bottom:-80px;right:-80px;
+  width:400px;height:400px;background:rgba(0,0,0,0.06);border-radius:50%;
+}
+.final-cta .goat-cta{
+  width:400px;height:400px;margin:0 auto 24px;
+  animation:floatGoat 4s ease-in-out infinite;
+  position:relative;filter:drop-shadow(0 12px 24px rgba(0,0,0,0.15));
+}
+.final-cta h2{
+  font-size:clamp(36px,5.5vw,50px);font-weight:900;
+  color:white;line-height:1.08;letter-spacing:-0.02em;
+  max-width:860px;margin:0 auto 18px;position:relative;
+}
+.final-cta p{
+  font-family:'Lora',serif;font-size:20px;
+  color:rgba(255,255,255,0.8);max-width:960px;
+  margin:0 auto 40px;line-height:1.65;position:relative;
+}
+.btn-white{
+  background:white;color:#0284C7;
+  padding:18px 46px;border-radius:50px;
+  font-size:18px;font-weight:900;text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.15);
+  transition:all 0.2s;position:relative;
+}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 16px 52px rgba(0,0,0,0.22);}
+.cta-fine{margin-top:18px;font-size:13px;color:rgba(255,255,255,0.55);position:relative;}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+footer{
+  background:var(--dark);padding:40px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+}
+
+.footer-logo span {
+  color: var(--sky);
+}
+
+.footer-copy{font-size:12px;color:rgb(255, 255, 255);font-weight:600;}
+footer nav a{
+  color:rgba(255,255,255,0.38);text-decoration:none;
+  font-size:13px;font-weight:600;margin-left:24px;transition:color 0.2s;
+}
+footer nav a:hover{color:white;}
+
+/* ══════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════ */
+.reveal{
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.55s ease,transform 0.55s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.reveal-delay-4{transition-delay:0.4s;}
+
+/* Match founding page video walkthrough background */
+.final-cta.how-it-works-video {
+  background: #EAD7BE;
+}
+
+.final-cta.how-it-works-video::before {
+  background: rgba(212, 132, 90, 0.08);
+}
+
+.final-cta.how-it-works-video::after {
+  background: rgba(74, 124, 89, 0.06);
+}
+
+.final-cta.how-it-works-video h2 {
+  color: var(--dark);
+}
+
+.final-cta.how-it-works-video p {
+  color: var(--mid);
+}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(74,124,89,0.18);
+  border-radius: 14px;
+  background: var(--white);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0;
+}
+
+.nav-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--sage);
+  border-radius: 999px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+body.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+body.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+body.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media(max-width:768px){
+  body > nav{padding:14px 20px;}
+
+  .nav-right {
+  gap: 10px;
+}
+
+.nav-right .nav-link {
+  display: none;
+}
+
+.nav-right .nav-btn {
+  display: none;
+}
+
+.nav-toggle {
+  display: flex;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 82px;
+  left: 16px;
+  right: 16px;
+  z-index: 9998;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: rgba(254,250,244,0.98);
+  border: 1px solid rgba(200,168,130,0.25);
+  border-radius: 22px;
+  box-shadow: 0 18px 48px rgba(44,48,37,0.16);
+}
+
+body.menu-open .mobile-menu {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: var(--dark);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+
+.mobile-menu a:hover {
+  background: var(--sage-pale);
+  color: var(--sage);
+}
+
+.mobile-menu-btn {
+  background: var(--sage);
+  color: white !important;
+  text-align: center;
+  margin-top: 4px;
+}
+
+  .problem-grid,
+  .edge-def-inner,
+  .moments-grid,
+  .changes-grid,
+  .why-inner,
+  .who-inner,
+  .pricing-grid{
+    grid-template-columns:1fr;
+  }
+
+  .process-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+    max-width:430px;
+    margin:48px auto 0;
+  }
+
+  .process-grid::before{
+    display:none;
+  }
+
+  .process-step{
+    width:100%;
+    min-height:auto;
+    padding:44px 30px 38px;
+    border-radius:32px;
+  }
+
+  .edge-def-inner{
+    padding:40px 28px;
+  }
+
+  .result-chain{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+    max-width:360px;
+    margin:36px auto 0 !important;
+  }
+
+  .result-arrow{
+    transform:rotate(90deg);
+    text-align:center;
+    opacity:.55;
+  }
+
+  .result-item{
+    width:100%;
+    text-align:center;
+  }
+
+  .step-num {
+    width: 74px;
+    height: 74px;
+    font-size: 28px;
+    margin-bottom: 28px;
+  }
+
+  .step-icon {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  .step-title {
+    font-size: 26px;
+    line-height: 1.1;
+  }
+
+  .step-body {
+    font-size: 20px;
+    line-height: 1.45;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .step-time {
+    font-size: 16px;
+    margin-top: 26px;
+  }
+
+  .result-chain {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 360px;
+    margin: 36px auto 0 !important;
+  }
+
+  .result-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+    opacity: 0.55;
+  }
+
+  .result-item {
+    width: 100%;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 18px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <img 
+      src="/images/edge-head.png" 
+      alt="SteadyEDGE logo"
+      class="nav-logo-img"
+    />
+    <div>
+      <div class="nav-logo-text">Steady<span>EDGE</span></div>
+      <div class="nav-logo-sub">When expressing yourself gets hard, get steady.</div>
+    </div>
+  </a>
+
+  <button
+    class="nav-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+    onclick="toggleMobileMenu()"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-right">
+    <a href="https://app.steadyedge.app/trial" class="nav-btn">Start Free Trial on Web →</a>
+  </div>
+</nav>
+
+<div id="mobile-menu" class="mobile-menu">
+  <a href="https://app.steadyedge.app/login" onclick="closeMobileMenu()">Login</a>
+  <a href="https://app.steadyedge.app/trial" class="mobile-menu-btn" onclick="closeMobileMenu()">Start Free Trial on Web →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hill hill-1"></div>
+    <div class="hill hill-2"></div>
+    <div class="hill hill-3"></div>
+    <div class="hill hill-4"></div>
+  </div>
+
+  <h1>
+  <span class="hero-main">Build 
+    <span class="hl">Steadiness</span><br>
+    <span class="hero-main-smaller">when communication gets hard.</span>
+  </span>
+  </h1>
+  <p class="hero-desc">SteadyEDGE is a communication app that helps you understand why those moments hit so hard, choose a steadier response, and practice it in real life.</p>
+   <div class="hero-badge">🌿 Meet Edge — your master edge navigator</div>
+  <div class="video-placeholder">
+  <div class="video-box">
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1187944657?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="SteadyEDGE App"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+  </div>
+</div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+  <div class="hero-actions">
+    <a href="https://app.steadyedge.app/trial" class="btn-primary">Start Your 7-Day Free Trial on Web →</a>
+  </div>
+  <div class="store-badges" aria-label="Download SteadyEDGE">
+  <a href="https://apps.apple.com/us/app/steadyedge/id6771161429" aria-label="Download on the App Store">
+    <img src="/images/AppleStore.png" alt="Download on the App Store">
+  </a>
+
+  <a href="YOUR_GOOGLE_PLAY_LINK" aria-label="Get it on Google Play">
+    <img src="/images/GooglePlay.png" alt="Get it on Google Play">
+  </a>
+</div>
+  <p class="hero-sub">Find your Edge. Practice a steadier response. Track your progress.</p>
+  <a href="#problem" class="scroll-arrow" aria-label="Scroll to video walkthrough">
+  <span></span>
+</a>
+</section>
+
+<!-- ── PROBLEM ── -->
+<section id="problem" class="problem">
+  <div class="container">
+    <div class="sec-label reveal">Why communication changes under pressure</div>
+    <h2 class="sec-title reveal">You're not failing.<br>You're protecting.</h2>
+    <div class="problem-grid">
+      <div class="problem-left reveal">
+        <div class="problem-quote">
+          <p>The way you communicate under pressure is not  <em>random.</em><br><br>
+          In some moments, your nervous system reads a conversation as risk before your mind has time to sort it out.<br><br>
+          You may know what you want to say, but something holds you back.<br><br>
+          Later, you think: <em>"That wasn't really me."</em><br><br>
+          This isn't a personality flaw.<br>It’s your nervous system trying to protect you in a moment that felt risky.</p>
+        </div>
+      </div>
+      <div class="problem-points">
+  <div class="pp reveal reveal-delay-1">
+    <div class="pp-icon" aria-hidden="true">
+  <img src="/images/muted.png" alt="" width="75" height="75" />
+</div>
+    <div>
+      <div class="pp-title">You go quiet</div>
+      <div class="pp-body">The words are there, but the risk feels too high.</div>
+    </div>
+  </div>
+
+  <div class="pp reveal reveal-delay-2">
+   <div class="pp-icon" aria-hidden="true">
+  <img src="/images/overexplain.png" alt="" width="75" height="75" />
+</div>
+    <div>
+      <div class="pp-title">You over-explain</div>
+      <div class="pp-body">You keep adding context so you don’t get misunderstood.</div>
+    </div>
+  </div>
+
+  <div class="pp reveal reveal-delay-3">
+    <div class="pp-icon" aria-hidden="true">
+  <img src="/images/soften.png" alt="" width="75" height="75" />
+</div>
+    <div>
+      <div class="pp-title">You soften the message</div>
+      <div class="pp-body">You shrink what you mean so you don’t seem difficult.</div>
+    </div>
+  </div>
+
+  <div class="pp reveal reveal-delay-4">
+    <div class="pp-icon" aria-hidden="true">
+  <img src="/images/push.png" alt="" width="75" height="75" />
+</div>
+    <div>
+      <div class="pp-title">You push harder</div>
+      <div class="pp-body">The pressure rises, and your tone gets stronger than you intended.</div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT IS YOUR EDGE ── -->
+<section class="edge-def" style="padding:70px 24px;">
+  <div class="container">
+    <div class="edge-def-inner reveal" style="display:block; max-width:980px; margin:0 auto;">
+      <div class="edge-def-text" style="max-width:980px; margin:0 auto;">
+        <div class="sec-label">The Core Concept</div>
+
+        <h2 class="sec-title">What is your Edge?</h2>
+
+        <p class="sec-body">
+          Your Edge is the moment your default reaction starts to take over under pressure.
+          <br><br>
+          It might show up as going quiet, over-explaining, defending, avoiding, softening what you mean, or pushing harder than you intended.
+        </p>
+
+        <div class="edge-terms" style="margin-top:34px;">
+          <div class="edge-term">
+            <div class="edge-term-name">Your Edge may feel like:</div>
+            <ul class="edge-list">
+              <li>A pause before you speak</li>
+              <li>Tightness in your body</li>
+              <li>Urgency to explain or defend</li>
+              <li>Holding back what you want to say</li>
+              <li>Worry about being misunderstood</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="sec-body" style="margin-top:34px;">
+          SteadyEDGE helps you find that moment and choose a steadier response to practice.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MOMENTS ── -->
+<section class="moments">
+  <div class="container">
+    <div class="sec-label reveal">Where your Edge may show up</div>
+    <h2 class="sec-title reveal">It happens in everyday communication</h2>
+    <p class="sec-body reveal">Your Edge can show up at home, at work, or in any moment where it feels harder to say what you mean, ask for what you need, or stay steady under pressure.</p>
+    <div class="moments-grid">
+
+      <!-- Personal -->
+<div class="moment-card reveal reveal-delay-1">
+  <div class="moment-scene moment-scene-personal moment-scene-solid">
+    <div class="scene-title">In Personal Moments</div>
+  </div>
+
+  <div class="moment-body">
+    <p>Your child pushes back. Your partner’s tone changes. Someone you care about misunderstands you.</p>
+
+    <p>You know how you want to respond, but your system reacts first.</p>
+
+    <p>Later: <em>"That wasn't how I wanted to handle that."</em></p>
+
+    <ul class="moment-list">
+      <li>The boundary you soften to avoid tension</li>
+      <li>The hard conversation you keep postponing</li>
+      <li>The feedback you swallow instead of naming</li>
+      <li>The frustration you hold in until it leaks sideways</li>
+    </ul>
+
+    <div class="moment-closer">Not failure. Protection.</div>
+  </div>
+</div>
+
+<!-- Professional -->
+<div class="moment-card reveal reveal-delay-2">
+  <div class="moment-scene moment-scene-professional moment-scene-solid">
+    <div class="scene-title">In Professional Moments</div>
+  </div>
+
+  <div class="moment-body">
+    <p>You’re in a meeting, sales call, client conversation, or moment where your words matter.</p>
+
+    <p>You know the point you want to make, but pressure changes how you communicate.</p>
+
+    <p>Later: <em>"I wish I had said that differently."</em></p>
+
+    <ul class="moment-list">
+      <li>The presentation where you shrink your message</li>
+      <li>The meeting where you over-explain instead of simply stating it</li>
+      <li>The sales call where you prove value instead of staying clear</li>
+      <li>The price you raise, then quietly justify or walk back</li>
+    </ul>
+
+    <div class="moment-closer">Not confusion. Protection.</div>
+  </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="how">
+  <div class="container">
+    <div class="sec-label reveal" style="text-align:center;">How SteadyEDGE Works</div>
+
+    <h2 class="sec-title reveal" style="text-align:center;">
+      Find your Edge.<br> Practice a steadier response.
+    </h2>
+
+    <p class="sec-body reveal" style="margin:0 auto 0;text-align:center;">
+      SteadyEDGE gives you a simple way to work with hard communication moments in real life.
+    </p>
+
+    <div class="process-grid">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">1</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Find Your Edge</div>
+        <div class="step-body">
+          Find the moment communication gets hard and your default reaction starts to take over.
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">2</div>
+        <div class="step-icon">🎯</div>
+        <div class="step-title">Choose a Steadier Response</div>
+        <div class="step-body">
+          Choose one response to practice the next time your Edge shows up.
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">3</div>
+        <div class="step-icon">💬</div>
+        <div class="step-title">Practice in Real Life</div>
+        <div class="step-body">
+          Use your steadier response when your Edge shows up in a real conversation or everyday interaction.
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-4">
+        <div class="step-num">4</div>
+        <div class="step-icon">📝</div>
+        <div class="step-title">Log Your Response</div>
+        <div class="step-body">
+          Come back to the app and record what happened, what you practiced, and how long it took to feel steady again.
+        </div>
+      </div>
+
+      <div class="process-step reveal reveal-delay-4">
+        <div class="step-num">5</div>
+        <div class="step-icon">📈</div>
+        <div class="step-title">Track Your Progress</div>
+        <div class="step-body">
+          See how your steadiness, confidence, and communication patterns change over time.
+        </div>
+      </div>
+    </div>
+
+    <div class="result-chain reveal" style="margin-top:40px;">
+      <div class="result-item">Find your Edge</div>
+      <div class="result-arrow">→</div>
+      <div class="result-item">Practice a steadier response</div>
+      <div class="result-arrow">→</div>
+      <div class="result-item">Log Your Response</div>
+      <div class="result-arrow">→</div>
+      <div class="result-item">Track your progress</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT CHANGES ── -->
+<section class="what-changes">
+  <div class="container">
+    <div class="sec-label reveal" style="text-align:center;">The transformation</div>
+    <h2 class="sec-title reveal" style="text-align:center;">What actually changes</h2>
+    <div class="changes-grid">
+      <div class="change-before reveal reveal-delay-1">
+        <div class="change-tag">Before SteadyEDGE</div>
+        <h3>Hard conversations pull you into your default reaction.</h3>
+        <ul class="change-list">
+          <li>You know what to say, but hold back</li>
+          <li>You over-explain, shut down, soften, or push harder.</li>
+          <li>You replay the conversation afterward</li>
+          <li>You wish you had handled it differently.</li>
+        </ul>
+        <div class="change-closer">"That wasn’t how I wanted to handle that."</div>
+      </div>
+      <div class="change-after reveal reveal-delay-2">
+        <div class="change-tag">With SteadyEDGE</div>
+        <h3>Hard conversations become practice moments.</h3>
+        <ul class="change-list">
+          <li>You notice your Edge sooner.</li>
+          <li>You choose a steadier response.</li>
+          <li>You recover faster.</li>
+          <li>You build confidence through practice.</li>
+        </ul>
+        <div class="change-closer">"That was more like me."</div>
+      </div>
+    </div>
+    <p class="change-benefit">
+  With practice, you can feel more heard, build confidence, improve your relationships, and quiet the repeating conversations in your head.
+</p>
+  </div>
+</section>
+
+<!-- ── WHO IT'S FOR ── -->
+<section class="who">
+  <div class="container">
+    <div class="who-inner">
+      <div>
+        <div class="sec-label reveal">Who Edge trains with</div>
+        <h2 class="sec-title reveal">SteadyEDGE is for you if…</h2>
+        <div class="who-list">
+          <div class="who-item reveal reveal-delay-1"><div class="who-check">✓</div>You know what you want to say, but hesitate.</div>
+          <div class="who-item reveal reveal-delay-2"><div class="who-check">✓</div>You go quiet, over-explain, soften, or push harder.
+          </div>
+          <div class="who-item reveal reveal-delay-2"><div class="who-check">✓</div>You replay conversations later.</div>
+          <div class="who-item reveal reveal-delay-3"><div class="who-check">✓</div>You want to respond with more steadiness.</div>
+          <div class="who-item reveal reveal-delay-4"><div class="who-check">✓</div>You want a simple way to practice, not just think about it.</div>
+        </div>
+      </div>
+      <!-- App Dashboard Mockup -->
+      <div class="who-visual">
+  <img 
+    src="/images/phone.png" 
+    alt="SteadyEDGE app preview"
+    class="app-mockup-img"
+  />
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING ── -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="sec-label reveal" style="color:rgba(255,255,255,0.45);">Simple Pricing</div>
+    <h2 class="sec-title reveal">Start building steadier communication today.</h2>
+    <p class="sec-body reveal">No therapy. No hype. No performance pressure. Just structured reps for the moments communication gets hard — with feedback from Edge every step of the way.</p>
+    <div class="pricing-grid">
+      <div class="price-card reveal reveal-delay-1">
+        <div class="price-lbl" style="margin-top: 50px;">Monthly</div>
+        <div class="price-amt"><span>$</span>9<span>.99</span></div>
+        <div class="price-per">per month</div>
+        <a href="https://app.steadyedge.app/trial" class="price-btn">Choose Monthly</a>
+      </div>
+      <div class="price-card feat reveal reveal-delay-2">
+        <div class="price-badge">SAVE 50%</div>
+        <div class="price-lbl">Annual</div>
+        <div class="price-amt"><span>$</span>4<span>.99</span></div>
+        <div class="price-per">per month · billed $59.99/yr</div>
+        <a href="https://app.steadyedge.app/trial" class="price-btn">Choose Annual</a>
+      </div>
+    </div>
+    <p class="pricing-platform-note">
+  Your SteadyEDGE account works across web, iPhone, and Android.
+</p>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="sec-label reveal" style="text-align:center;">Got questions?</div>
+    <h2 class="sec-title reveal" style="text-align:center;">Edge has answers.</h2>
+    <div class="faq-wrap">
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is this therapy?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">No — SteadyEDGE is behavioral training, not therapy. It does not treat mental health conditions or provide clinical care. It helps you build nervous-system capacity for real communication moments, so you can respond with more steadiness, clarity, and choice. Many people use SteadyEDGE alongside therapy or coaching.</div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-1">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How soon will I notice a difference?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Many people notice small shifts within the first few reps. You may catch your pattern sooner, recover faster after a hard conversation, or notice more choice in a moment that usually pulls you into an old response. Deeper change builds through repeated practice over time.</div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-2">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How much time does it take?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Your first Discovery session usually takes about 10–15 minutes. After that, each Rep log takes about 5 minutes. The real practice happens inside the communication moments you’re already living — SteadyEDGE helps you train one small shift at a time.</div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-3">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do I need any prior experience with personal development work?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">No. Edge walks you through the process step by step. If you’ve done a lot of inner work, SteadyEDGE gives that awareness somewhere practical to go. If you’re new to this kind of work, the app keeps it simple, grounded, and easy to follow.</div>
+      </div>
+
+      <div class="faq-item reveal reveal-delay-4">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What makes this different from other self-help apps?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Most apps focus on awareness. SteadyEDGE focuses on capacity. It helps you train the exact moment your communication pattern starts — when you go quiet, over-explain, soften the message, defend, or push harder than you meant to. The goal is not just more insight. The goal is a steadier response when it counts.</div>
+      </div>
+
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Can I use this alongside coaching or therapy?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-a">Yes. SteadyEDGE can give your coaching or therapy work a place to live between sessions. It helps you practice small communication reps in real life, then track what happened, how you recovered, and what changed. If you're a coach, counselor or therapist interested in integrating SteadyEDGE with your practice, reach out — we have options for that.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta">
+  <img
+  src="/images/EdgeEtta.png" 
+  alt="Edge the goat"
+  class="goat-cta"
+/>
+  <h2>Stop replaying the conversation. Start practicing a steadier response.</h2>
+  <p>Edge is ready when you are. Real conversations. Steady responses. Lasting change.</p>
+  <a href="https://app.steadyedge.app/trial" class="btn-white">Start Free Trial on Web →</a>
+  <div class="store-badges" aria-label="Download SteadyEDGE">
+  <a href="https://apps.apple.com/us/app/steadyedge/id6771161429" aria-label="Download on the App Store">
+    <img src="/images/AppleStore.png" alt="Download on the App Store">
+  </a>
+
+  <a href="YOUR_GOOGLE_PLAY_LINK" aria-label="Get it on Google Play">
+    <img src="/images/GooglePlay.png" alt="Get it on Google Play">
+  </a>
+</div>
+  <p class="cta-fine" style="margin-top:20px;">7-day free trial · No commitment · Cancel anytime</p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Steady<span>EDGE</span></div>
+  <div class="footer-copy">© 2026 SteadyEDGE | All Rights Reserved</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="https://app.steadyedge.app/login">Login</a>
+    <a href="legal.html">Privacy & Terms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+
+// Mobile menu
+function toggleMobileMenu() {
+  const isOpen = document.body.classList.toggle("menu-open");
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+}
+
+function closeMobileMenu() {
+  document.body.classList.remove("menu-open");
+
+  const button = document.querySelector(".nav-toggle");
+
+  if (button) {
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Open menu");
+  }
+}
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
